@@ -1,0 +1,28 @@
+{
+  "name": "world_cultures_api_backend",
+  "version": "1.0.0",
+  "description": "An API of cultures and attributes related to countries and the continents they belong to",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WorldWithAPI-Sparrow/World_Cultures_API_Backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WorldWithAPI-Sparrow/World_Cultures_API_Backend/issues"
+  },
+  "homepage": "https://github.com/WorldWithAPI-Sparrow/World_Cultures_API_Backend#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "express": "^4.17.3",
+    "express-basic-auth": "^1.2.1",
+    "nodemon": "^2.0.15",
+    "oauth": "^0.9.15",
+    "sequelize": "^6.18.0",
+    "sqlite3": "^5.0.2"
+  }
+}
