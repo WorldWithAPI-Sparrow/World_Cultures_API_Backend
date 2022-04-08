@@ -1,6 +1,6 @@
 const path = require("path");
 const fs = require("fs").promises;
-const bcrypt = require("bcrypt");
+// const bcrypt = require("bcrypt");
 
 const { sequelize } = require("./db");
 const {
@@ -15,12 +15,12 @@ const {
 } = require("./models");
 
 const createUsers = async () => {
-  let pw1 = await bcrypt.hash("myPassword", 2);
-  let pw2 = await bcrypt.hash("hi!!");
+  // let pw1 = await bcrypt.hash("myPassword", 2);
+  // let pw2 = await bcrypt.hash("hi!!");
 
   const users = [
-    { userName: "Lamin", userPassword: pw1 },
-    { userName: "Anuja", userPassword: pw2 },
+    { userName: "Lamin", userPassword: "myPassword" },
+    { userName: "Anuja", userPassword: "hi!!" },
   ];
 
   return users;
@@ -42,11 +42,11 @@ const createUsers = async () => {
 // }
 
 const seed = async () => {
-  await sequalize.sync({ force: true });
+  await sequelize.sync({ force: true });
   const users = await createUsers();
   const userPromises = users.map((user) => User.create(user));
   //   const continentsPromises = continents.map((item) => Continents.create(continent));
-  await Promise.all([...userPromises, ...itemPromises]);
+  await Promise.all([...userPromises]);
   console.log("database populated!");
 };
 
