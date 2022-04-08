@@ -81,6 +81,26 @@ const TouristAttractions = async () => {
   return touristAttractions;
 };
 
+const createLanguages = async () => {
+  const languages = [
+    {language: "Amharic",
+     CountryId: 1},
+    {language: "Oromo",
+     CountryId: 1},
+    {language: "Tigrigna",
+     CountryId: 1}
+];
+  return languages;
+};
+
+const createCurrencies = async () => {
+  const currencies = [
+    {language: "Birr",
+     CountryId: 1},
+];
+  return currencies;
+};
+
 // function createCountryArray(results) {
 //   let countryResults = [];
 
@@ -100,13 +120,17 @@ const seed = async () => {
   const traditionalFoods = await createTraditionalFoods();
   const music = await createMusic();
   const touristAttractions = await createTouristAttraction();
+  const languages = await createLanguages();
+  const currencies = await createCurrencies();
   const traditionalFoodPromises = traditionalFoods.map((traditionalFood) => TraditionalFoods.create(traditionalFood));
   const userPromises = users.map((user) => User.create(user));
   const continentPromises = continents.map((continent) => Continents.create(continent));
   const countryPromises = countries.map((country) => Countries.create(country));
   const musicPromises = music.map((music) => Music.create(music));
   const touristAttractionPromises = touristAttractions.map((touristAttraction) => TouristAttractions.create(touristAttraction));
-  await Promise.all([...userPromises, ...continentPromises, ...countryPromises, ...traditionalFoodPromises, ...musicPromises, ...touristAttractionPromises]);
+  const languagePromises = languages.map((language) => Langauge.create(language));
+  const currencyPromises = currencies.map((currency) => Currency.create(currency));
+  await Promise.all([...userPromises, ...continentPromises, ...countryPromises, ...traditionalFoodPromises, ...musicPromises, ...touristAttractionPromises, ...languagePromises, ...currencyPromises]);
   console.log("database populated!");
 };
 
