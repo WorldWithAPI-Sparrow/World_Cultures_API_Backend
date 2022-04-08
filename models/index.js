@@ -1,17 +1,12 @@
-const { Sequelize, DataTypes, Model } = require("sequelize");
 const { sequelize } = require("../db");
 
-class User extends Model {}
+//import models
+const {Continent} = require('../models/continent')
+const {Country} = require('../models/country')
+const {Currency} = require('../models/currency')
+const {Language} = require('../models/language')
+const {Music} = require('../models/music')
+const {TouristAttraction} = require('../models/touristAttraction')
+const {TraditionalFood} = require('../models/traditionalFood')
+const {User} = require('../models/user')
 
-User.init(
-  {
-    userName: DataTypes.STRING,
-    userPassword: DataTypes.STRING,
-  },
-  {
-    sequelize,
-    timestamps: false,
-  }
-);
-
-module.exports = { User };
