@@ -1,4 +1,14 @@
 const { use } = require("bcrypt/promises");
+const {
+  Continent,
+  Country,
+  TraditionalFood,
+  Music,
+  TouristAttraction,
+  Language,
+  Currency,
+} = require("../models");
+
 const PORT = 3000;
 
 const routes = (app) => {
@@ -11,8 +21,8 @@ const routes = (app) => {
 
   //Get continent by ID
   app.get("/continents/:id", async (req, res) => {
-    let continent = await Continent.findByPk(req.params.id);
-    res.json({ continent });
+    let oneContinent = await Continent.findByPk(req.params.id);
+    res.json({ oneContinent });
   });
 
   // create a continent
@@ -32,7 +42,7 @@ const routes = (app) => {
   // delete a continent
   app.delete("/continents/:id", async (req, res) => {
     await Continent.destroy({ where: { id: req.params.id } });
-    res.send(deleted ? "Continent deleted" : "Continent delition failed!");
+    res.send(Continent ? "Continent deleted" : "Continent delition failed!");
   });
 
   //---------------------Routes for Countries ---------------------------------------
@@ -66,7 +76,7 @@ const routes = (app) => {
   // delete a country
   app.delete("/countries/:id", async (req, res) => {
     await Country.destroy({ where: { id: req.params.id } });
-    res.send(deleted ? "Country deleted" : "Country delition failed!");
+    res.send(Country ? "Country deleted" : "Country delition failed!");
   });
 
   //---------------------Routes for Language ---------------------------------------
@@ -100,7 +110,7 @@ const routes = (app) => {
   // delete a language
   app.delete("/languages/:id", async (req, res) => {
     await Language.destroy({ where: { id: req.params.id } });
-    res.send(deleted ? "language deleted" : "language delition failed!");
+    res.send(Language ? "language deleted" : "language delition failed!");
   });
 
   //---------------------Routes for Music ---------------------------------------
@@ -134,7 +144,7 @@ const routes = (app) => {
   // delete a music
   app.delete("/musics/:id", async (req, res) => {
     await Music.destroy({ where: { id: req.params.id } });
-    res.send(deleted ? "music deleted" : "music delition failed!");
+    res.send(Music ? "music deleted" : "music delition failed!");
   });
 
   //---------------------Routes for traditionalFood ---------------------------------------
@@ -168,7 +178,9 @@ const routes = (app) => {
   app.delete("/traditionalFoods/:id", async (req, res) => {
     await TraditionalFood.destroy({ where: { id: req.params.id } });
     res.send(
-      deleted ? "traditionalFood deleted" : "traditionalFood delition failed!"
+      TraditionalFood
+        ? "traditionalFood deleted"
+        : "traditionalFood delition failed!"
     );
   });
 
@@ -204,7 +216,7 @@ const routes = (app) => {
   app.delete("/touristAttractions/:id", async (req, res) => {
     await TouristAttraction.destroy({ where: { id: req.params.id } });
     res.send(
-      deleted
+      TouristAttraction
         ? "touristAttraction deleted"
         : "touristAttraction delition failed!"
     );
@@ -241,7 +253,7 @@ const routes = (app) => {
   // delete a currencies
   app.delete("/currencies/:id", async (req, res) => {
     await Currency.destroy({ where: { id: req.params.id } });
-    res.send(deleted ? "currency deleted" : "currency delition failed!");
+    res.send(Currency ? "currency deleted" : "currency delition failed!");
   });
 
   //---------------------Routes for User ---------------------------------------
