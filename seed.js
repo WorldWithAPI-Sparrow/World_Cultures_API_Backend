@@ -6,13 +6,17 @@ const { sequelize } = require("./db");
 const {
   Continent,
   Country,
-  User,
+  
   TraditionalFood,
   Music,
   TouristAttraction,
   Language,
   Currency,
 } = require("./models");
+
+const {
+  User} = require("./models/index");
+
 
 const createUsers = async () => {
   // let pw1 = await bcrypt.hash("myPassword", 2);
@@ -43,33 +47,33 @@ const createCountries = async () => {
   return countries;
 };
 
-const TraditionalFoods = async () => {
+const createTraditionalFoods = async () => {
   const traditionalFoods = [
-    {traditionalFoodName: "Injera", 
+    {traditionalDish: "Injera", 
      CountryId: 1},
-     {traditionalFoodName: "Gomen", 
+     {traditionalDish: "Gomen", 
      CountryId: 1},
-     {traditionalFoodName: "Shiro", 
+     {traditionalDish: "Shiro", 
      CountryId: 1},
-     {traditionalFoodName: "Sambusa", 
+     {traditionalDish: "Sambusa", 
      CountryId: 1},
-     {traditionalFoodName: "Kitfo", 
+     {traditionalDish: "Kitfo", 
      CountryId: 1}
 ];
   return traditionalFoods;
 };
 
-const Music = async () => {
-  const music = [
+const createMusics = async () => {
+  const musics = [
     {songName: "Mar eske Tuwaf (Fikir Eske Meqabir)",
      artistName: "Teddy Afro",
      musicVideo: "https://www.youtube.com/watch?v=mFzHpK7ibfo", 
      CountryId: 1}
 ];
-  return music;
+  return musics;
 };
 
-const TouristAttractions = async () => {
+const createTouristAttractions = async () => {
   const touristAttractions = [
     {placesToVisit: "Axum",
      CountryId: 1},
@@ -95,17 +99,18 @@ const TouristAttractions = async () => {
 const seed = async () => {
   await sequelize.sync({ force: true });
   const users = await createUsers();
+  console.log(users);
   const continents = await createContinents();
   const countries = await createCountries();
   const traditionalFoods = await createTraditionalFoods();
-  const music = await createMusic();
-  const touristAttractions = await createTouristAttraction();
-  const traditionalFoodPromises = traditionalFoods.map((traditionalFood) => TraditionalFoods.create(traditionalFood));
+  const musics = await createMusics();
+  const touristAttractions = await createTouristAttractions();
   const userPromises = users.map((user) => User.create(user));
-  const continentPromises = continents.map((continent) => Continents.create(continent));
-  const countryPromises = countries.map((country) => Countries.create(country));
-  const musicPromises = music.map((music) => Music.create(music));
-  const touristAttractionPromises = touristAttractions.map((touristAttraction) => TouristAttractions.create(touristAttraction));
+  const continentPromises = continents.map((continent) => Continent.create(continent));
+  const countryPromises = countries.map((country) => Country.create(country));
+  const traditionalFoodPromises = traditionalFoods.map((traditionalFood) => TraditionalFood.create(traditionalFood));
+  const musicPromises = musics.map((music) => Music.create(music));
+  const touristAttractionPromises = touristAttractions.map((touristAttraction) => TouristAttraction.create(touristAttraction));
   await Promise.all([...userPromises, ...continentPromises, ...countryPromises, ...traditionalFoodPromises, ...musicPromises, ...touristAttractionPromises]);
   console.log("database populated!");
 };
