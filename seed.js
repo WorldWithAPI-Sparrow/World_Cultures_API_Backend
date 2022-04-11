@@ -64,8 +64,8 @@ const createCountries = async () => {
 
 const createTraditionalFoods = async () => {
   const traditionalFoods = traditionalFoodJSON.map((f) => ({
-    traditionalDish: f.dish,
     myCountry: f.country,
+    traditionalDish: f.dish,
   }));
   //console.log(traditionalFoods);
   // const traditionalFoods = [

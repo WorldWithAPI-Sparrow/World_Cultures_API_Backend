@@ -23,9 +23,7 @@ Music.belongsTo(Country);
 Country.hasMany(Music);
 
 TraditionalFood.belongsTo(Country);
-Country.hasMany(TraditionalFood, {
-  foreignKey: "myCountry",
-});
+Country.hasMany(TraditionalFood);
 
 TouristAttraction.belongsTo(Country);
 Country.hasMany(TouristAttraction);
