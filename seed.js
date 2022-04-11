@@ -16,8 +16,9 @@ const {
 
 const { User } = require("./models/index");
 
-const traditionalFood = require("./node_modules/country-json/src/country-by-national-dish.json");
+const traditionalFoodJSON = require("./node_modules/country-json/src/country-by-national-dish.json");
 const countriesJSON = require("./node_modules/country-json/src/country-by-name.json");
+const continentJSON = require("./node_modules/country-json/src/country-by-continent.json");
 //console.log(traditionalFood[0]);
 //console.log(country);
 
@@ -62,13 +63,18 @@ const createCountries = async () => {
 };
 
 const createTraditionalFoods = async () => {
-  const traditionalFoods = [
-    { traditionalDish: "Injera", CountryId: 1 },
-    { traditionalDish: "Gomen", CountryId: 1 },
-    { traditionalDish: "Shiro", CountryId: 1 },
-    { traditionalDish: "Sambusa", CountryId: 1 },
-    { traditionalDish: "Kitfo", CountryId: 1 },
-  ];
+  const traditionalFoods = traditionalFoodJSON.map((f) => ({
+    traditionalDish: f.dish,
+    myCountry: f.country,
+  }));
+  //console.log(traditionalFoods);
+  // const traditionalFoods = [
+  //   { traditionalDish: "Injera", CountryId: 1 },
+  //   { traditionalDish: "Gomen", CountryId: 1 },
+  //   { traditionalDish: "Shiro", CountryId: 1 },
+  //   { traditionalDish: "Sambusa", CountryId: 1 },
+  //   { traditionalDish: "Kitfo", CountryId: 1 },
+  // ];
   return traditionalFoods;
 };
 
@@ -125,10 +131,11 @@ const seed = async () => {
   const countryPromises = countries.map((country) =>
     Country.create({ countryName: country })
   );
-  //console.log(countries[0]);
+
   const traditionalFoodPromises = traditionalFoods.map((traditionalFood) =>
     TraditionalFood.create(traditionalFood)
   );
+
   const musicPromises = musics.map((music) => Music.create(music));
   const touristAttractionPromises = touristAttractions.map(
     (touristAttraction) => TouristAttraction.create(touristAttraction)
