@@ -14,9 +14,12 @@ const {
   Currency,
 } = require("./models");
 
-const {
-  User} = require("./models/index");
+const { User } = require("./models/index");
 
+const traditionalFood = require("./node_modules/country-json/src/country-by-national-dish.json");
+const countriesJSON = require("./node_modules/country-json/src/country-by-name.json");
+//console.log(traditionalFood[0]);
+//console.log(country);
 
 const createUsers = async () => {
   // let pw1 = await bcrypt.hash("myPassword", 2);
@@ -32,89 +35,77 @@ const createUsers = async () => {
 
 const createContinents = async () => {
   const continents = [
-    {continentName: "Africa", 
-     continentMap: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_EKjSJ2y8CANXjipl8arGgTCRBqJi63VAQ&usqp=CAU"}
-];
+    {
+      continentName: "Africa",
+      continentMap:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_EKjSJ2y8CANXjipl8arGgTCRBqJi63VAQ&usqp=CAU",
+    },
+  ];
   return continents;
 };
 
 const createCountries = async () => {
-  const countries = [
-    {countryName: "Ethiopia", 
-     countryMap: "https://www.freeworldmaps.net/africa/ethiopia/ethiopia-physical-map.jpg",
-     ContinentId: 1}
-];
+  const countries = countriesJSON.map((c) => c.country);
+  //console.log(countries);
+
+  //countriesJSON.map(c => Country.create({ "countryName": c.name);
+
+  // const countries = [
+  //   {
+  //     countryName: "Ethiopia",
+  //     countryMap:
+  //       "https://www.freeworldmaps.net/africa/ethiopia/ethiopia-physical-map.jpg",
+  //     ContinentId: 1,
+  //   },
+  // ];
   return countries;
 };
 
 const createTraditionalFoods = async () => {
   const traditionalFoods = [
-    {traditionalDish: "Injera", 
-     CountryId: 1},
-     {traditionalDish: "Gomen", 
-     CountryId: 1},
-     {traditionalDish: "Shiro", 
-     CountryId: 1},
-     {traditionalDish: "Sambusa", 
-     CountryId: 1},
-     {traditionalDish: "Kitfo", 
-     CountryId: 1}
-];
+    { traditionalDish: "Injera", CountryId: 1 },
+    { traditionalDish: "Gomen", CountryId: 1 },
+    { traditionalDish: "Shiro", CountryId: 1 },
+    { traditionalDish: "Sambusa", CountryId: 1 },
+    { traditionalDish: "Kitfo", CountryId: 1 },
+  ];
   return traditionalFoods;
 };
 
 const createMusics = async () => {
   const musics = [
-    {songName: "Mar eske Tuwaf (Fikir Eske Meqabir)",
-     artistName: "Teddy Afro",
-     musicVideo: "https://www.youtube.com/watch?v=mFzHpK7ibfo", 
-     CountryId: 1}
-];
+    {
+      songName: "Mar eske Tuwaf (Fikir Eske Meqabir)",
+      artistName: "Teddy Afro",
+      musicVideo: "https://www.youtube.com/watch?v=mFzHpK7ibfo",
+      CountryId: 1,
+    },
+  ];
   return musics;
 };
 
 const createTouristAttractions = async () => {
   const touristAttractions = [
-    {placesToVisit: "Axum",
-     CountryId: 1},
-     {placesToVisit: "Lalibela",
-     CountryId: 1},
-     {placesToVisit: "The National Museum of Ethiopia",
-     CountryId: 1}
-];
+    { placesToVisit: "Axum", CountryId: 1 },
+    { placesToVisit: "Lalibela", CountryId: 1 },
+    { placesToVisit: "The National Museum of Ethiopia", CountryId: 1 },
+  ];
   return touristAttractions;
 };
 
 const createLanguages = async () => {
   const languages = [
-    {language: "Amharic",
-     CountryId: 1},
-    {language: "Oromo",
-     CountryId: 1},
-    {language: "Tigrigna",
-     CountryId: 1}
-];
+    { language: "Amharic", CountryId: 1 },
+    { language: "Oromo", CountryId: 1 },
+    { language: "Tigrigna", CountryId: 1 },
+  ];
   return languages;
 };
 
 const createCurrencies = async () => {
-  const currencies = [
-    {currency: "Birr",
-     CountryId: 1},
-];
+  const currencies = [{ currency: "Birr", CountryId: 1 }];
   return currencies;
 };
-
-// function createCountryArray(results) {
-//   let countryResults = [];
-
-//   results.map((i) =>
-//     country.create({
-//       name: i["country.name"],
-//     })
-//   );
-//   return countryResults;
-// }
 
 const seed = async () => {
   await sequelize.sync({ force: true });
@@ -127,14 +118,37 @@ const seed = async () => {
   const languages = await createLanguages();
   const currencies = await createCurrencies();
   const userPromises = users.map((user) => User.create(user));
-  const continentPromises = continents.map((continent) => Continent.create(continent));
-  const countryPromises = countries.map((country) => Country.create(country));
-  const traditionalFoodPromises = traditionalFoods.map((traditionalFood) => TraditionalFood.create(traditionalFood));
+  const continentPromises = continents.map((continent) =>
+    Continent.create(continent)
+  );
+  //const countryPromises = countries.map((country) => Country.create(country));
+  const countryPromises = countries.map((country) =>
+    Country.create({ countryName: country })
+  );
+  //console.log(countries[0]);
+  const traditionalFoodPromises = traditionalFoods.map((traditionalFood) =>
+    TraditionalFood.create(traditionalFood)
+  );
   const musicPromises = musics.map((music) => Music.create(music));
-  const touristAttractionPromises = touristAttractions.map((touristAttraction) => TouristAttraction.create(touristAttraction));
-  const languagePromises = languages.map((language) => Language.create(language));
-  const currencyPromises = currencies.map((currency) => Currency.create(currency));
-  await Promise.all([...userPromises, ...continentPromises, ...countryPromises, ...traditionalFoodPromises, ...musicPromises, ...touristAttractionPromises, ...languagePromises, ...currencyPromises]);
+  const touristAttractionPromises = touristAttractions.map(
+    (touristAttraction) => TouristAttraction.create(touristAttraction)
+  );
+  const languagePromises = languages.map((language) =>
+    Language.create(language)
+  );
+  const currencyPromises = currencies.map((currency) =>
+    Currency.create(currency)
+  );
+  await Promise.all([
+    ...userPromises,
+    ...continentPromises,
+    ...countryPromises,
+    ...traditionalFoodPromises,
+    ...musicPromises,
+    ...touristAttractionPromises,
+    ...languagePromises,
+    ...currencyPromises,
+  ]);
   console.log("database populated!");
 };
 
