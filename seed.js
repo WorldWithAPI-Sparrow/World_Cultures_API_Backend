@@ -17,7 +17,7 @@ const {
 const { User } = require("./models/index");
 
 const traditionalFood = require("./node_modules/country-json/src/country-by-national-dish.json");
-const countriesJSON = require("./node_modules/country-json/src/country-by-name.json");
+const countriesJSON = require("./node_modules/country-json/src/country-by-continent.json");
 //console.log(traditionalFood[0]);
 //console.log(country);
 
@@ -40,12 +40,61 @@ const createContinents = async () => {
       continentMap:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_EKjSJ2y8CANXjipl8arGgTCRBqJi63VAQ&usqp=CAU",
     },
+    {
+      continentName: "Antarctica",
+      continentMap:
+        "https://media.nationalgeographic.org/assets/photos/000/273/27325.jpg",
+    },
+    {
+      continentName: "Asia",
+      continentMap:
+        "https://www.geographicguide.com/pictures/map-physical.jpg",
+    },
+    {
+      continentName: "Australia",
+      continentMap:
+        "https://www.freeworldmaps.net/australia/australia-map-physical.jpg",
+    },
+    {
+      continentName: "Europe",
+      continentMap:
+        "https://geology.com/world/cia/europe-physical-map.jpg",
+    },
+    {
+      continentName: "North America",
+      continentMap:
+        "https://media.nationalgeographic.org/assets/photos/000/276/27666.jpg",
+    },
+    {
+      continentName: "South America",
+      continentMap:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Map_of_South_America_%28physical%2C_political%2C_population%29_with_legend.jpg/640px-Map_of_South_America_%28physical%2C_political%2C_population%29_with_legend.jpg",
+    }
   ];
   return continents;
 };
 
 const createCountries = async () => {
-  const countries = countriesJSON.map((c) => c.country);
+  const countries = countriesJSON.map((c) => {
+    c.country, 
+    
+    (if(c.continent == "Africa") {
+      c.ContinentId : 1;
+    }else if(c.continent == "Antarctica") {
+      c.ContinentId : 2;
+    }else if(c.continent == "Asia") {
+      c.ContinentId : 3;
+    }else if(c.continent == "Australia") {
+      c.ContinentId : 4;
+    }else if(c.continent == "Europe") {
+      c.ContinentId : 5;
+    }else if(c.continent == "North America") {
+      c.ContinentId : 6;
+    }else if(c.continent == "South America") {
+      c.ContinentId : 7;
+    })
+  });
+  
   //console.log(countries);
 
   //countriesJSON.map(c => Country.create({ "countryName": c.name);
