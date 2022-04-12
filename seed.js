@@ -19,7 +19,7 @@ const { User } = require("./models/index");
 const traditionalFood = require("./node_modules/country-json/src/country-by-national-dish.json");
 const countriesJSON = require("./node_modules/country-json/src/country-by-continent.json");
 //console.log(traditionalFood[0]);
-//console.log(country);
+// console.log(countriesJSON);
 
 const createUsers = async () => {
   // let pw1 = await bcrypt.hash("myPassword", 2);
@@ -51,7 +51,7 @@ const createContinents = async () => {
         "https://www.geographicguide.com/pictures/map-physical.jpg",
     },
     {
-      continentName: "Australia",
+      continentName: "Australia and Oceana",
       continentMap:
         "https://www.freeworldmaps.net/australia/australia-map-physical.jpg",
     },
@@ -75,29 +75,44 @@ const createContinents = async () => {
 };
 
 const createCountries = async () => {
-  const countries = countriesJSON.map((c) => {
-    c.country 
-    
-    (if(c.continent == "Africa") {
-      c.ContinentId = 1;
-    }else if(c.continent == "Antarctica") {
-      c.ContinentId = 2;
-    }else if(c.continent == "Asia") {
-      c.ContinentId = 3;
-    }else if(c.continent == "Australia") {
-      c.ContinentId = 4;
-    }else if(c.continent == "Europe") {
-      c.ContinentId = 5;
-    }else if(c.continent == "North America") {
-      c.ContinentId = 6;
-    }else if(c.continent == "South America") {
-      c.ContinentId = 7;
-    })
-  });
-  
-  //console.log(countries);
+    const countries = 
+    // countriesJSON.map((i) => ({
+    //   countryName: i.country,
+    //   continent: i.continent,
+    //   ContinentId: if(i.continent = "Africa") {
+    //     return 1;
+    //   }
+    // }));
+    countriesJSON.map((c) => c.country)
+  // countriesJSON.map((i) => {
+  //   if(i.continent == "Africa") {
+  //  ({countryName: i.country, 
+  //    ContinentId: 1})
+  //   }else if(i.continent == "Antarctica") {
+  //  ({countryName: i.country, 
+  //     ContinentId: 2})
+  //   }else if(i.continent == "Asia") {
+  //  ({countryName: i.country, 
+  //     ContinentId: 3})
+  //   }else if(i.continent == "Australia") {
+  //  ({countryName: i.country, 
+  //     ContinentId: 4})
+  //   }else if(i.continent == "Oceania") {
+  //   ({countryName: i.country, 
+  //     ContinentId: 4})
+  //   }else if(i.continent == "Europe") {
+  //  ({countryName: i.country, 
+  //     ContinentId: 5})
+  //   }else if(i.continent == "North America") {
+  //  ({countryName: i.country, 
+  //     ContinentId: 6})
+  //   }else if(i.continent == "South America") {
+  //  ({countryName: i.country, 
+  //     ContinentId: 7})
+  //   }
+  // });
 
-  //countriesJSON.map(c => Country.create({ "countryName": c.name);
+   // const countries = countriesJSON.map(c => Country.create({ "countryName": c.name);
 
   // const countries = [
   //   {
@@ -108,7 +123,25 @@ const createCountries = async () => {
   //   },
   // ];
   return countries;
+ 
 };
+
+// const createTraditionalFoods = async () => {
+//   const traditionalFoods = traditionalFoodJSON.map((f) => ({
+//     myCountry: f.country,
+//     traditionalDish: f.dish,
+//   }));
+//   //console.log(traditionalFoods);
+//   // const traditionalFoods = [
+//   //   { traditionalDish: "Injera", CountryId: 1 },
+//   //   { traditionalDish: "Gomen", CountryId: 1 },
+//   //   { traditionalDish: "Shiro", CountryId: 1 },
+//   //   { traditionalDish: "Sambusa", CountryId: 1 },
+//   //   { traditionalDish: "Kitfo", CountryId: 1 },
+//   // ];
+//   return traditionalFoods;
+// };
+
 
 const createTraditionalFoods = async () => {
   const traditionalFoods = [
@@ -170,10 +203,11 @@ const seed = async () => {
   const continentPromises = continents.map((continent) =>
     Continent.create(continent)
   );
-  //const countryPromises = countries.map((country) => Country.create(country));
-  const countryPromises = countries.map((country) =>
-    Country.create({ countryName: country })
-  );
+  const countryPromises = countries.map((country) => Country.create(country));
+  // const countryPromises = countries.map((country) =>
+  //   Country.create({ countryName: country, continent: country })
+    // Country.create(country)
+  //);
   //console.log(countries[0]);
   const traditionalFoodPromises = traditionalFoods.map((traditionalFood) =>
     TraditionalFood.create(traditionalFood)

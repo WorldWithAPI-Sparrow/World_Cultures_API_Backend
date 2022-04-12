@@ -6,7 +6,7 @@ class Country extends Model {}
 Country.init(
   {
     countryName: DataTypes.STRING,
-    
+    continent: DataTypes.STRING
   },
   {
     sequelize,
