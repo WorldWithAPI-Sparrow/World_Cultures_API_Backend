@@ -1,4 +1,9 @@
+const bcrypt = require('bcrypt');
+const saltRounds = 2;
 const { use } = require("bcrypt/promises");
+
+const res = require("express/lib/response");
+
 const {
   Continent,
   Country,
@@ -7,6 +12,7 @@ const {
   TouristAttraction,
   Language,
   Currency,
+  User
 } = require("../models");
 
 const PORT = 3000;
@@ -276,7 +282,8 @@ const routes = (app) => {
     const password = req.body.password;
 
     bcrypt.hash(password, saltRounds, async function (err, hash) {
-      const newUser = await User.create({ name: name, password: hash });
+      const newUser = await User.create({ 'userName': name, 'userPassword': hash });
+      console.log(hash)
       res.json({ newUser });
     });
   });

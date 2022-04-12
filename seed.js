@@ -1,6 +1,10 @@
 const path = require("path");
 const fs = require("fs").promises;
+<<<<<<< HEAD
 // const bcrypt = require("bcrypt");;
+=======
+const bcrypt = require("bcrypt");
+>>>>>>> 495d444d39416be2696c5ae6c225441c5078168f
 
 const { sequelize } = require("./db");
 
@@ -12,9 +16,8 @@ const {
   TouristAttraction,
   Language,
   Currency,
-} = require("./models");
-
-const { User } = require("./models/index");
+  User
+} = require("./models/index");
 
 const traditionalFoodJSON = require("./node_modules/country-json/src/country-by-national-dish.json");
 const countriesJSON = require("./node_modules/country-json/src/country-by-continent.json");
@@ -33,12 +36,12 @@ const currenciesJSON = require("./node_modules/country-json/src/country-by-curre
 //console.log(newJSON);
 
 const createUsers = async () => {
-  // let pw1 = await bcrypt.hash("myPassword", 2);
-  // let pw2 = await bcrypt.hash("hi!!");
+  let pw1 = await bcrypt.hash("myPassword", 2);
+  let pw2 = await bcrypt.hash("hi!!", 2);
 
   const users = [
-    { userName: "Lamin", userPassword: "myPassword" },
-    { userName: "Anuja", userPassword: "hi!!" },
+    { userName: "Lamin", userPassword: pw1 },
+    { userName: "Anuja", userPassword: pw2 },
   ];
 
   return users;
