@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require("bcrypt");
 const saltRounds = 2;
 const { use } = require("bcrypt/promises");
 
@@ -12,15 +12,29 @@ const {
   TouristAttraction,
   Language,
   Currency,
-  User
+  User,
 } = require("../models");
 
 const PORT = 3000;
 
 const routes = (app) => {
+  const jwt = require("express-jwt");
+  const jwks = require("jwks-rsa");
+
+  const jwtCheck = jwt({
+    secret: jwks.expressJwtSecret({
+      cache: true,
+      rateLimit: true,
+      jwksRequestsPerMinute: 5,
+      jwksUri: "https://dev-z8lrysnv.us.auth0.com/.well-known/jwks.json",
+    }),
+    audience: "localhost:3000",
+    issuer: "https://dev-z8lrysnv.us.auth0.com/",
+    algorithms: ["RS256"],
+  });
   //---------------------Routes for Continents ---------------------------------------
   //Get all continents
-  app.get("/continents", async (req, res) => {
+  app.get("/continents", jwtCheck, async (req, res) => {
     let continents = await Continent.findAll();
     res.json({ continents });
   });
@@ -282,8 +296,8 @@ const routes = (app) => {
     const password = req.body.password;
 
     bcrypt.hash(password, saltRounds, async function (err, hash) {
-      const newUser = await User.create({ 'userName': name, 'userPassword': hash });
-      console.log(hash)
+      const newUser = await User.create({ userName: name, userPassword: hash });
+      console.log(hash);
       res.json({ newUser });
     });
   });

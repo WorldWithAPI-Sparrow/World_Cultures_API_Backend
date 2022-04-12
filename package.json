@@ -22,6 +22,8 @@
     "country-json": "^1.1.2",
     "express": "^4.17.3",
     "express-basic-auth": "^1.2.1",
+    "express-jwt": "^6.1.1",
+    "jwks-rsa": "^2.0.5",
     "nodemon": "^2.0.15",
     "oauth": "^0.9.15",
     "sequelize": "^6.18.0",
