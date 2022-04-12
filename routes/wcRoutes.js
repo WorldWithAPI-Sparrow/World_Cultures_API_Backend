@@ -288,6 +288,46 @@ const routes = (app) => {
     });
   });
 
+  //---------------------Routes ---------------------------------------
+
+  //Get country and Language by ID
+  app.get("continents/:id/countries/:id/languages/:id", async (req, res) => {
+    let myLanguage = await Language.findByPk(req.params.id);
+    res.json({ myLanguage });
+  });
+
+  //Get country and music by ID
+  app.get("continents/:id/countries/:id/musics/:id", async (req, res) => {
+    let myMusic = await Music.findByPk(req.params.id);
+    res.json({ myMusic });
+  });
+
+  //Get country and traditionalFoods by ID
+  app.get(
+    "continents/:id/countries/:id/traditionalFoods/:id",
+    async (req, res) => {
+      let myTraditionalFood = await TraditionalFood.findByPk(req.params.id);
+      res.json({ myTraditionalFood });
+    }
+  );
+
+  //Get country and touristAttractions by ID
+  app.get(
+    "continents/:id/countries/:id/touristAttractions/:id",
+    async (req, res) => {
+      let myTouristAttractions = await TouristAttraction.findByPk(
+        req.params.id
+      );
+      res.json({ myTouristAttractions });
+    }
+  );
+
+  //Get country and touristAttractions by ID
+  app.get("continents/:id/countries/:id/currencies/:id", async (req, res) => {
+    let myCurrency = await Currency.findByPk(req.params.id);
+    res.json({ myCurrency });
+  });
+
   //   app
   //     .route("/country")
   //     .get((req, res) => res.send("Get request successful!"))
