@@ -76,22 +76,22 @@ const createContinents = async () => {
 
 const createCountries = async () => {
   const countries = countriesJSON.map((c) => {
-    c.country, 
+    c.country 
     
     (if(c.continent == "Africa") {
-      c.ContinentId : 1;
+      c.ContinentId = 1;
     }else if(c.continent == "Antarctica") {
-      c.ContinentId : 2;
+      c.ContinentId = 2;
     }else if(c.continent == "Asia") {
-      c.ContinentId : 3;
+      c.ContinentId = 3;
     }else if(c.continent == "Australia") {
-      c.ContinentId : 4;
+      c.ContinentId = 4;
     }else if(c.continent == "Europe") {
-      c.ContinentId : 5;
+      c.ContinentId = 5;
     }else if(c.continent == "North America") {
-      c.ContinentId : 6;
+      c.ContinentId = 6;
     }else if(c.continent == "South America") {
-      c.ContinentId : 7;
+      c.ContinentId = 7;
     })
   });
   
