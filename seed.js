@@ -1,6 +1,6 @@
 const path = require("path");
 const fs = require("fs").promises;
-// const bcrypt = require("bcrypt");
+const bcrypt = require("bcrypt");
 
 const { sequelize } = require("./db");
 
@@ -12,19 +12,16 @@ const {
   TouristAttraction,
   Language,
   Currency,
-} = require("./models");
-
-const {
-  User} = require("./models/index");
-
+  User
+} = require("./models/index");
 
 const createUsers = async () => {
-  // let pw1 = await bcrypt.hash("myPassword", 2);
-  // let pw2 = await bcrypt.hash("hi!!");
+  let pw1 = await bcrypt.hash("myPassword", 2);
+  let pw2 = await bcrypt.hash("hi!!", 2);
 
   const users = [
-    { userName: "Lamin", userPassword: "myPassword" },
-    { userName: "Anuja", userPassword: "hi!!" },
+    { userName: "Lamin", userPassword: pw1 },
+    { userName: "Anuja", userPassword: pw2 },
   ];
 
   return users;
