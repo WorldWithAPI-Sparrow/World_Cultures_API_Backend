@@ -1,10 +1,6 @@
 const path = require("path");
 const fs = require("fs").promises;
-<<<<<<< HEAD
-// const bcrypt = require("bcrypt");;
-=======
 const bcrypt = require("bcrypt");
->>>>>>> 495d444d39416be2696c5ae6c225441c5078168f
 
 const { sequelize } = require("./db");
 
@@ -16,16 +12,13 @@ const {
   TouristAttraction,
   Language,
   Currency,
-  User
+  User,
 } = require("./models/index");
 
 const traditionalFoodJSON = require("./node_modules/country-json/src/country-by-national-dish.json");
 const countriesJSON = require("./node_modules/country-json/src/country-by-continent.json");
 const languagesJSON = require("./node_modules/country-json/src/country-by-languages.json");
 const currenciesJSON = require("./node_modules/country-json/src/country-by-currency-name.json");
-//console.log(traditionalFood[0]);
-//console.log(country);
-//console.log(languagesJSON);
 
 //const newJSON = {
 //...traditionalFoodJSON,
@@ -86,12 +79,14 @@ const createContinents = async () => {
   return continents;
 };
 
+//Need to add continentID
 const createCountries = async () => {
   const countries = countriesJSON.map((c) => c.country);
 
   return countries;
 };
 
+//Need countryID for traditionalFood
 const createTraditionalFoods = async () => {
   const traditionalFoods = traditionalFoodJSON.map((f) => ({
     myCountry: f.country,
@@ -122,14 +117,7 @@ const createTouristAttractions = async () => {
   return touristAttractions;
 };
 
-// const createLanguages = async () => {
-//   const Languages = newJSON.map((l) => ({
-//     myCountry: l.country,
-//     language: l.languages.join(),
-//   }));
-//   return Languages;
-// };
-
+//Need countryID for language
 const createLanguages = async () => {
   const Languages = languagesJSON.map((l) => ({
     myCountry: l.country,
@@ -138,15 +126,7 @@ const createLanguages = async () => {
   return Languages;
 };
 
-// const createLanguages = async () => {
-//   const languages = [
-//     { language: "Amharic", CountryId: 1 },
-//     { language: "Oromo", CountryId: 1 },
-//     { language: "Tigrigna", CountryId: 1 },
-//   ];
-//   return languages;
-// };
-
+//Need countryID for currency
 const createCurrencies = async () => {
   const currencies = currenciesJSON.map((cu) => ({
     myCountry: cu.country,
@@ -155,11 +135,6 @@ const createCurrencies = async () => {
 
   return currencies;
 };
-
-// const createCurrencies = async () => {
-//   const currencies = [{ currency: "Birr", CountryId: 1 }];
-//   return currencies;
-// };
 
 const seed = async () => {
   await sequelize.sync({ force: true });
