@@ -83,34 +83,34 @@ const createCountries = async () => {
     //     return 1;
     //   }
     // }));
-    countriesJSON.map((c) => c.country)
-  // countriesJSON.map((i) => {
-  //   if(i.continent == "Africa") {
-  //  ({countryName: i.country, 
-  //    ContinentId: 1})
-  //   }else if(i.continent == "Antarctica") {
-  //  ({countryName: i.country, 
-  //     ContinentId: 2})
-  //   }else if(i.continent == "Asia") {
-  //  ({countryName: i.country, 
-  //     ContinentId: 3})
-  //   }else if(i.continent == "Australia") {
-  //  ({countryName: i.country, 
-  //     ContinentId: 4})
-  //   }else if(i.continent == "Oceania") {
-  //   ({countryName: i.country, 
-  //     ContinentId: 4})
-  //   }else if(i.continent == "Europe") {
-  //  ({countryName: i.country, 
-  //     ContinentId: 5})
-  //   }else if(i.continent == "North America") {
-  //  ({countryName: i.country, 
-  //     ContinentId: 6})
-  //   }else if(i.continent == "South America") {
-  //  ({countryName: i.country, 
-  //     ContinentId: 7})
-  //   }
-  // });
+    // countriesJSON.map((c) => c.country)
+  countriesJSON.map((i) => {
+    if(i.continent == "Africa") {
+   ({countryName: i.country, 
+     ContinentId: 1})
+    }else if(i.continent == "Antarctica") {
+   ({countryName: i.country, 
+      ContinentId: 2})
+    }else if(i.continent == "Asia") {
+   ({countryName: i.country, 
+      ContinentId: 3})
+    }else if(i.continent == "Australia") {
+   ({countryName: i.country, 
+      ContinentId: 4})
+    }else if(i.continent == "Oceania") {
+    ({countryName: i.country, 
+      ContinentId: 4})
+    }else if(i.continent == "Europe") {
+   ({countryName: i.country, 
+      ContinentId: 5})
+    }else if(i.continent == "North America") {
+   ({countryName: i.country, 
+      ContinentId: 6})
+    }else if(i.continent == "South America") {
+   ({countryName: i.country, 
+      ContinentId: 7})
+    }
+  });
 
    // const countries = countriesJSON.map(c => Country.create({ "countryName": c.name);
 
