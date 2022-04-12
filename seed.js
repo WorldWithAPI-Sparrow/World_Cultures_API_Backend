@@ -1,6 +1,6 @@
 const path = require("path");
 const fs = require("fs").promises;
-// const bcrypt = require("bcrypt");
+// const bcrypt = require("bcrypt");;
 
 const { sequelize } = require("./db");
 
@@ -19,8 +19,10 @@ const { User } = require("./models/index");
 const traditionalFoodJSON = require("./node_modules/country-json/src/country-by-national-dish.json");
 const countriesJSON = require("./node_modules/country-json/src/country-by-name.json");
 const continentJSON = require("./node_modules/country-json/src/country-by-continent.json");
+const languagesJSON = require("./node_modules/country-json/src/country-by-languages.json");
 //console.log(traditionalFood[0]);
 //console.log(country);
+//console.log(languagesJSON);
 
 const createUsers = async () => {
   // let pw1 = await bcrypt.hash("myPassword", 2);
@@ -100,13 +102,21 @@ const createTouristAttractions = async () => {
 };
 
 const createLanguages = async () => {
-  const languages = [
-    { language: "Amharic", CountryId: 1 },
-    { language: "Oromo", CountryId: 1 },
-    { language: "Tigrigna", CountryId: 1 },
-  ];
-  return languages;
+  const Languages = languagesJSON.map((l) => ({
+    myCountry: l.country,
+    language: l.languages.join(),
+  }));
+  return Languages;
 };
+
+// const createLanguages = async () => {
+//   const languages = [
+//     { language: "Amharic", CountryId: 1 },
+//     { language: "Oromo", CountryId: 1 },
+//     { language: "Tigrigna", CountryId: 1 },
+//   ];
+//   return languages;
+// };
 
 const createCurrencies = async () => {
   const currencies = [{ currency: "Birr", CountryId: 1 }];

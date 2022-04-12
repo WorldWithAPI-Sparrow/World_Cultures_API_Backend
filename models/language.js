@@ -5,7 +5,8 @@ class Language extends Model {}
 
 Language.init(
   {
-    language: DataTypes.STRING,    
+    myCountry: DataTypes.STRING,
+    language: DataTypes.STRING,
   },
   {
     sequelize,
