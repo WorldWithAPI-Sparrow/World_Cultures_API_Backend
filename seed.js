@@ -34,6 +34,7 @@ const createContinents = async () => {
       continentName: "Africa",
       continentMap:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_EKjSJ2y8CANXjipl8arGgTCRBqJi63VAQ&usqp=CAU",
+      
     },
     {
       continentName: "Antarctica",

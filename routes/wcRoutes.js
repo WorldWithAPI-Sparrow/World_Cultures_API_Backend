@@ -81,6 +81,7 @@ const routes = (app) => {
 
   // create a country
   app.post("/countries", async (req, res) => {
+    console.log(req.params);
     let newCountry = await Country.create(req.body);
     res.json({ newCountry });
   });
@@ -304,16 +305,25 @@ const routes = (app) => {
 
   //---------------------Routes ---------------------------------------
 
-  //Get country and Language by ID
-  app.get("continents/:id/countries/:id/languages/:id", async (req, res) => {
-    let myLanguage = await Language.findByPk(req.params.id);
-    res.json({ myLanguage });
+  app.get("/continents/:continentId/:countryId", async (req, res) => {
+    console.log(req.params)
+    let myContinent = await Continent.findByPk(req.params.continentId);
+    let myCountry = await Country.findByPk(req.params.countryId);
+    res.json({ myContinent, myCountry });
   });
 
-  //Get country and music by ID
-  app.get("continents/:id/countries/:id/musics/:id", async (req, res) => {
-    let myMusic = await Music.findByPk(req.params.id);
-    res.json({ myMusic });
+    //Get country and music by ID
+    app.get("/continents/:id/:countryId/:musicId", async (req, res) => {
+      console.log(req.params)
+      let myMusic = await Music.findByPk(req.params.id);
+      res.json({ myMusic });
+    });
+
+  //Get country and Language by ID
+  app.get("/continents/:id/countries/:id/languages/:id", async (req, res) => {
+    console.log(req.params)
+    let myLanguage = await Language.findByPk(req.params.id);
+    res.json({ myLanguage });
   });
 
   //Get country and traditionalFoods by ID
