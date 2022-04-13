@@ -6,7 +6,9 @@ class Country extends Model {}
 Country.init(
   {
     countryName: DataTypes.STRING,
-    continent: DataTypes.STRING
+    continent: DataTypes.STRING,
+    // will try to make id string 
+    // ContinentId: DataTypes.STRING
   },
   {
     sequelize,
