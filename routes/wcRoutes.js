@@ -60,7 +60,7 @@ const routes = (app) => {
   });
 
   // delete a continent
-  app.delete("/continents/:id", async (req, res) => {
+  app.delete("/continents/:id", jwtCheck, async (req, res) => {
     await Continent.destroy({ where: { id: req.params.id } });
     res.send(Continent ? "Continent deleted" : "Continent delition failed!");
   });
@@ -94,7 +94,7 @@ const routes = (app) => {
   });
 
   // delete a country
-  app.delete("/countries/:id", async (req, res) => {
+  app.delete("/countries/:id", jwtCheck, async (req, res) => {
     await Country.destroy({ where: { id: req.params.id } });
     res.send(Country ? "Country deleted" : "Country delition failed!");
   });
@@ -128,7 +128,7 @@ const routes = (app) => {
   });
 
   // delete a language
-  app.delete("/languages/:id", async (req, res) => {
+  app.delete("/languages/:id", jwtCheck, async (req, res) => {
     await Language.destroy({ where: { id: req.params.id } });
     res.send(Language ? "language deleted" : "language delition failed!");
   });
@@ -162,7 +162,7 @@ const routes = (app) => {
   });
 
   // delete a music
-  app.delete("/musics/:id", async (req, res) => {
+  app.delete("/musics/:id", jwtCheck, async (req, res) => {
     await Music.destroy({ where: { id: req.params.id } });
     res.send(Music ? "music deleted" : "music delition failed!");
   });
@@ -195,7 +195,7 @@ const routes = (app) => {
   });
 
   // delete a traditionalFood
-  app.delete("/traditionalFoods/:id", async (req, res) => {
+  app.delete("/traditionalFoods/:id", jwtCheck, async (req, res) => {
     await TraditionalFood.destroy({ where: { id: req.params.id } });
     res.send(
       TraditionalFood
@@ -233,7 +233,7 @@ const routes = (app) => {
   });
 
   // delete a touristAttraction
-  app.delete("/touristAttractions/:id", async (req, res) => {
+  app.delete("/touristAttractions/:id", jwtCheck, async (req, res) => {
     await TouristAttraction.destroy({ where: { id: req.params.id } });
     res.send(
       TouristAttraction
@@ -271,7 +271,7 @@ const routes = (app) => {
   });
 
   // delete a currencies
-  app.delete("/currencies/:id", async (req, res) => {
+  app.delete("/currencies/:id", jwtCheck, async (req, res) => {
     await Currency.destroy({ where: { id: req.params.id } });
     res.send(Currency ? "currency deleted" : "currency delition failed!");
   });
@@ -279,13 +279,13 @@ const routes = (app) => {
   //---------------------Routes for User ---------------------------------------
 
   // read all users
-  app.get("/users", async (req, res) => {
+  app.get("/users", jwtCheck, async (req, res) => {
     let users = await User.findAll();
     res.json({ users });
   });
 
   // read one user by id
-  app.get("/users/:id", async (req, res) => {
+  app.get("/users/:id", jwtCheck, async (req, res) => {
     let user = await User.findByPk(req.params.id);
     res.json({ user });
   });
