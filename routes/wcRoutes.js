@@ -305,7 +305,7 @@ const routes = (app) => {
 
   //---------------------Routes ---------------------------------------
 
-  app.get("/continents/:continentId/:countryId", async (req, res) => {
+  app.get("/continents/:continentId/countries/:countryId", async (req, res) => {
     console.log(req.params)
     let myContinent = await Continent.findByPk(req.params.continentId);
     let myCountry = await Country.findByPk(req.params.countryId);
@@ -313,43 +313,53 @@ const routes = (app) => {
   });
 
     //Get country and music by ID
-    app.get("/continents/:id/:countryId/:musicId", async (req, res) => {
+    app.get("/continents/:continentId/countries/:countryId/musics/:musicId", async (req, res) => {
       console.log(req.params)
-      let myMusic = await Music.findByPk(req.params.id);
-      res.json({ myMusic });
+      let myContinent = await Continent.findByPk(req.params.continentId);
+      let myCountry = await Country.findByPk(req.params.countryId);
+      let myMusic = await Music.findByPk(req.params.musicId);
+      res.json({ myContinent, myCountry, myMusic });
     });
 
   //Get country and Language by ID
-  app.get("/continents/:id/countries/:id/languages/:id", async (req, res) => {
+  app.get("/continents/:continentId/countries/:countryId/languages/:languageId", async (req, res) => {
     console.log(req.params)
-    let myLanguage = await Language.findByPk(req.params.id);
-    res.json({ myLanguage });
+    let myContinent = await Continent.findByPk(req.params.continentId);
+    let myCountry = await Country.findByPk(req.params.countryId);
+    let myLanguage = await Language.findByPk(req.params.languageId);
+    res.json({ myContinent, myCountry, myLanguage });
   });
 
   //Get country and traditionalFoods by ID
   app.get(
-    "continents/:id/countries/:id/traditionalFoods/:id",
+    "/continents/:continentId/countries/:countryId/traditionalFoods/:traditionalFoodId",
     async (req, res) => {
-      let myTraditionalFood = await TraditionalFood.findByPk(req.params.id);
-      res.json({ myTraditionalFood });
+      let myContinent = await Continent.findByPk(req.params.continentId);
+      let myCountry = await Country.findByPk(req.params.countryId);
+      let myTraditionalFood = await TraditionalFood.findByPk(req.params.traditionalFoodId);
+      res.json({ myContinent, myCountry, myTraditionalFood });
     }
   );
 
   //Get country and touristAttractions by ID
   app.get(
-    "continents/:id/countries/:id/touristAttractions/:id",
+    "/continents/:continentId/countries/:countryId/touristAttractions/:touristAttractionId",
     async (req, res) => {
+      let myContinent = await Continent.findByPk(req.params.continentId);
+      let myCountry = await Country.findByPk(req.params.countryId);
       let myTouristAttractions = await TouristAttraction.findByPk(
-        req.params.id
+        req.params.touristAttractionId
       );
-      res.json({ myTouristAttractions });
+      res.json({ myContinent, myCountry, myTouristAttractions });
     }
   );
 
-  //Get country and touristAttractions by ID
-  app.get("continents/:id/countries/:id/currencies/:id", async (req, res) => {
-    let myCurrency = await Currency.findByPk(req.params.id);
-    res.json({ myCurrency });
+  //Get country and currency by ID
+  app.get("/continents/:continentId/countries/:countryId/currencies/:currencyId", async (req, res) => {
+    let myContinent = await Continent.findByPk(req.params.continentId);
+    let myCountry = await Country.findByPk(req.params.countryId);
+    let myCurrency = await Currency.findByPk(req.params.currencyId);
+    res.json({ myContinent, myCountry, myCurrency });
   });
 
   //   app

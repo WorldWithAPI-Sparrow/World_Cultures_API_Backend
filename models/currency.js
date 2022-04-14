@@ -5,7 +5,7 @@ class Currency extends Model {}
 
 Currency.init(
   {
-    myCountry: DataTypes.STRING,
+    //myCountry: DataTypes.STRING,
     currency: DataTypes.STRING,
   },
   {
