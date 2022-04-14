@@ -19,7 +19,7 @@ const traditionalFoodJSON = require("./node_modules/country-json/src/country-by-
 const countriesJSON = require("./node_modules/country-json/src/country-by-continent.json");
 const languagesJSON = require("./node_modules/country-json/src/country-by-languages.json");
 const currenciesJSON = require("./node_modules/country-json/src/country-by-currency-name.json");
-console.log(traditionalFoodJSON);
+//console.log(traditionalFoodJSON);
 
 //const newJSON = {
 //...traditionalFoodJSON,

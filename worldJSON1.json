@@ -1,21 +1,519 @@
-[
-    {
-        "continentId": 1,
-        "country":"Kenya",
-        "currency_name":"Kenyan Shilling",
+
+    [
+        {
+           "continentId":4,
+           "country":"Australia",
+           "currency_name":"Australian Dollar",
+           "continent":"Australia",
+           "languages":[
+              "Arabic",
+              "Canton Chinese",
+              "English",
+              "German",
+              "Greek",
+              "Italian",
+              "Serbo-Croatian",
+              "Vietnamese"
+            ],
+           "dish":"Meat pie,Roast lamb",
+           "music":[
+              {"Music Video":"https://www.youtube.com/watch?v=IOBd0PwQouE",
+              "Artist":"Icehouse",
+              "Song Title":"Great Southern Land"}
+           ],
+           "touristAttraction": "Cable Beach Broome, Fraser Island"
+        },
+        {
+           "continentId":3,
+           "country":"Bangladesh",
+           "currency_name":"Bangladeshi Taka",
+           "continent":"Asia",
+           "languages":[
+              "Bengali",
+              "Chakma",
+              "Garo",
+              "Khasi",
+              "Marma",
+              "Santhali",
+              "Tripuri"
+           ],
+           "dish":"Rice, Fish, Chicken Korma",
+           "music":[
+              {"Music Video":"https://www.youtube.com/watch?v=8AXpse21GDA",
+              "Artist":"BIPADTARAN DAS BAUL",
+              "Song Title":"Polli Geeti Majhi Baiya Jao "}
+           ],
+           "touristAttraction":"Cox's Bazar"
+        },
+        {
+           "continentId":7,
+           "country":"Brazil",
+           "currency_name":"Brazilian Real",
+           "continent":"South America",
+           "languages":[
+              "German",
+              "Indian Languages",
+              "Italian",
+              "Japanese",
+              "Portuguese"
+           ],
+           "dish":"Feijoada",
+           "music":[
+              {"Music Video":"https://www.youtube.com/watch?v=r0mNwyywHIY",
+              "Artist":"Malvada ",
+              "Song Title":"Zé Felipe "}
+           ],
+           "touristAttraction": "Cristo Redentor and Corcovado, Rio de Janeiro, Sugar Loaf, Rio de Janeiro"
+        },
+        {
+           "continentId":1,
+           "country":"Cameroon",
+           "currency_name":"CFA Franc BEAC",
+           "continent":"Africa",
+           "languages":[
+              
+           ],
+           "dish": "Fufu, Brochettes, Sangah, Mbanga, Eru and water fufu.",
+           "music":[
+              {"Music Video":"https://www.youtube.com/watch?v=rZm-olxxoQc",
+              "Artist":"Chuzih",
+              "Song Title": "Asaba _ Mon Bébé"}
+           ],
+           "touristAttraction": "Yaounde, Maroua,Limbe"
+         },
+     
+         {
+           "continentId": 6,
+           "country": "Canada",
+           "currency_name": "Canadian Dollar",
+           "continent": "North America",
+           "languages": [
+            "Chinese",
+            "Dutch",
+            "English",
+            "Eskimo Languages",
+            "French",
+            "German",
+            "Italian",
+            "Polish",
+            "Portuguese"
+           ],
+         "dish": "Kraft Dinner" ,
+          "music": [
+             {"Music Video": "https://www.youtube.com/watch?v=zo_S13SYeZw",
+             "Artist": "Sam Roberts",
+             "Song Title": "Canadian Dream"}
+           ],
+           "touristAttraction": "Gros Morne National Park, Calgary Stampede, Victorias Inner Harbour"
+         },
+     
+         {
+           "continentId": 7,
+           "country": "Colombia",
+           "currency_name": "Colombian Peso",
+           "continent": "South America",
+           "languages": "Spanish",
+           "dish": "Arepas, Ajiaco ,Bandeja Paisa, Cholao, Lulada",
+           "music": [
+             {"Music Video": "https://www.youtube.com/watch?v=4IzYE_e5POg",
+             "Artist": "Morat ",
+             "Song Title": "Llamada Perdida"}
+           ],
+           "touristAttraction": "Cartagena, Medellin, Eje Cafetero"
+         },
+     
+         {
+           "continentId": 6,
+           "country": "Costa Rica",
+           "currency_name": "Costa Rican Colon",
+           "continent": "North America",
+           "languages": [ "Chibcha, Chinese, Creole English, Spanish" ],
+           "dish": "Gallo pinto",
+           "music": [
+             {"MusicVideo": "https://www.youtube.com/watch?v=mwNBa40y2oA",
+             "Artist": "Chavela Vargas",
+             "SongTitle": "La Llorona"}
+           ],
+           "touristAttraction": "Manuel Antonio National Park, Arenal Volcano, Monteverde and the Cloud Forests"
+         },
+     
+                { "continentId": 1, 
+                "country": "Egypt", 
+                "currency_name": "Egyptian Pound", 
+                "continent": "Africa",
+                "languages": ["Literary Arabic, Coptic language, Saidi Arabic,Nobiin"], 
+                "dish": "rice-stuffed vegetables and grape leaves,hummus,falafel,shawarma,kebab" ,
+                "music": [
+                    {"MusicVideo": "https://www.youtube.com/watch?v=olawY7vi_ZY",
+                    "Artist": "Mezdeke Egypt",
+                    "SongTitle": "Ah Ya Alby"}
+                ],
+                "touristAttraction": "Pyramids of Giza,Luxors Temples & Tombs, Aswan, Abu Simbel"
+                },
+                {
+                "continentId":1,
+                "country":"Gambia",
+                "currency_name":"Gambian Dalasi",
+                "continent":"Africa",
+                "languages":[
+                "Diola",
+                "Ful",
+                "Malinke",
+                "Soninke",
+                "Wolof"
+                ],
+                "dish":"Domoda",
+                "music":[
+                {    "Music Video":"https://www.youtube.com/watch?v=JigBMU5tPaI",
+                    "Artist":"Bright Stars Entertainment ft Barhama ",
+                    "Song Title":"Ranha Bisap"}
+                ],
+                "touristAttraction":"Abuko Nature Reserve, Banjul,The Albert Market, Brufut Beach"
+            },
+            {
+                "continentId":5,
+                "country":"Germany",
+                "currency_name":"Euro",
+                "continent":"Europe",
+                "languages":[
+                "German",
+                "Greek",
+                "Italian",
+                "Polish",
+                "Southern Slavic Languages",
+                "Turkish"
+                ],
+                "dish":"Currywurst, Sauerbraten, Bratwurst",
+                "music":[
+                {    "Music Video":"https://www.youtube.com/watch?v=8fCV2F6u5mU",
+                    "Artist":"Goldried Quintett",
+                    "Song Title":"German Folk Music"}
+                ],
+                "touristAttraction":"Berlin's Brandenburg Gate, Cologne Cathedral, The Black Forest, Neuschwanstein"
+                },
+            
+                {"continentId": 3, 
+                "country": "India", 
+                "currency_name": "Indian Rupee", 
+                "continent": "Asia", 
+                "languages": [
+                        "Asami",
+                        "Bengali",
+                         "Gujarati",
+                         " Hindi",
+                         "Kannada",
+                         "Malayalam",
+                         "Marathi",
+                         "Literary Arabic",
+                          "Coptic language",
+                          " Saidi Arabic",
+                          "Nobiin",
+                          "Punjabi",
+                          "Tamil",
+                          "Telugu",
+                          "Urdu",
+                        "Sanskrit",
+                        " English",
+                         "Konkani",
+                        "Nepali"
+                ],
+                "dish": "curry, rice, roti",
+                "music": [
+                    {"MusicVideo": "https://www.youtube.com/watch?v=8XtXLVylOoU",
+                    "Artist": "Saajanji Ghar Aaye",
+                    "SongTitle": "Kuch Kuch Hota Hai, Shah Rukh Khan, Kajol, Alka Yagnik"}
+                ],
+                "touristAttraction": "The Taj Mahal,The Holy City of Varanasi,The Golden Temple of Amritsar,The Gateway of India"
+                },
+            
+                { "continentId": 5, 
+                "country": "Italy", 
+                "currency_name": "Euro", 
+                "continent": "Europe", 
+                "languages": [ "French", "German", "Italian", "Romansh" ], 
+                "dish": "Melanzane di Parmigiana, Ribolitta, Pizza", 
+                "music": [
+                   { "MusicVideo": "https://www.youtube.com/watch?v=8XtXLVylOoU",
+                    "Artist": "Saajanji Ghar Aaye",
+                    "SongTitle": "Kuch Kuch Hota Hai, Shah Rukh Khan, Kajol, Alka Yagnik"}
+                ],
+                "touristAttraction": "Colosseum,Florence Duomo Santa Maria del Fiore,Leaning Tower of Pisa"
+                },
+            
+                {
+                "continentId": 6,
+                "country": "Jamaica",
+                "currency_name": "Jamaican Dollar",
+                "continent": "North America",
+                "languages": ["English", "Jamaican Patois" ],
+                "dish": "Jerk Chicken,Ackee & Saltfish",
+                "music": [
+                    {"MusicVideo": "https://www.youtube.com/watch?v=X2W3aG8uizA",
+                    "Artist": "Bob Marley",
+                    "SongTitle": "Get Up, Stand Up"}
+                ],
+                "touristAttraction": "Negril Beach & the Negril Cliffs,Rafting the Martha Brae River, Dunn's River Falls"
+            },
+            {
+                "continentId": 3,
+                "country": "Japan",
+                "currency_name": "Japanese Yen",
+                "continent": "Asia",
+                "languages":[
+                "Chamorro",
+                "English",
+                "Japanese",
+                "Korean",
+                "Philippene Languages"
+                ],
+                "dish":"Sushi, Rice",
+                "music":[
+                {"MusicVideo":"https://www.youtube.com/watch?v=DXle_yt9tAk",
+                "Artist":"Ryo Fukui",
+                "SongTitle":"It Could Happen To You"}
+                ],
+                "touristAttraction":"Mount Fuji, Imperial Tokyo,  Hiroshima Peace Memorial Park"
+            },
+
+            {
+                "continentId":1,
+                "country":"Kenya",
+                "currency_name":"Kenyan Shilling",
+                "continent":"Africa",
+                "languages":[
+                    "Bantu Swahili language",
+                    "English"
+                ],
+                "dish":"Fish, Matoke, Mandazi",
+                "music":[
+                    {"MusicVideo":"https://www.youtube.com/watch?v=CCmItvVgn6Q",
+                    "Artist":"Zuchu ",
+                    "SongTitle":"Sukari"}
+                    ],
+                    "touristAttraction": "Maasai Mara National Reserve, Amboseli National Reserve,Tsavo National Park" 
+            
+            },
+
+            { 
+            "continentId": 1, 
+            "country": "Mali", 
+            "currency_name": "CFA Franc BCEAO", 
+            "continent": "Africa", 
+            "languages": [ "Diola", "Ful", "Malinke", "Soninke" ], 
+            "dish": "Tiguadege Na, La Capitaine Sangha", 
+            "music": [
+                {"MusicVideo": "https://www.youtube.com/watch?v=5KcYuqou1iQ",
+                "Artist": "Sidiki Diabaté",
+                "SongTitle": "Fais moi Confiance"}
+        ],
+        "touristAttraction":"Timbuktu, Gao, Bamako"
+        },
+
+        {
+        "continentId":6,
+        "country":"Mexico",
+        "currency_name":"Mexican Nuevo Peso",
+        "continent":"North America",
+        "languages":[
+            "spanish",
+            "English"
+        ],
+        "dish":"Chilaquiles, Tacos, Enchiladas",
+        "music":[
+            {"MusicVideo":"https://www.youtube.com/watch?v=0peANtDLVdI",
+            "Artist":"Vicente Fernandez",
+            "SongTitle": "Volver Volver"}
+            ],
+            "touristAttraction": "Monte Alban,San Miguel de Allende, El Malecon"
+            },
+
+            { 
+            "continentId": 3, 
+            "country": "Nepal", 
+            "currency_name": "Nepalese Rupee", 
+            "continent": "Asia",
+            "languages": [ "Asami", "Dzongkha", "Nepali" ], 
+            "dish": "Momos, Dal Bhat, Dhido", 
+            "music": [
+               { "MusicVideo": "https://www.youtube.com/watch?v=xhBF7iqerWA",
+                "Artist": "Lashmit Rai and Yasodha Parajuli",
+                "SongTitle": "Lagdacha Malai"}
+            ],
+            "touristAttraction": "Kathmandu, Bhaktapur, Pokhara"
+            },
+
+            {
+            "continentId": 1,
+            "country": "Nigeria",
+            "currency_name": "Nigerian Naira",
+            "continent": "Africa",
+            "languages": [ "Hausa , Yoruba, Igbo"],
+            "dish": "Jollof Rice, Iyan, Suya",
+            "music": [
+                {"MusicVideo": "https://www.youtube.com/watch?v=BFUxr_dkqxw",
+                "Artist": "Flavour",
+                "SongTitle": "Time to Party"}
+        ],
+        "touristAttraction":"Calabar, Lagos, Abeokuta"
+        },
+
+        {
+        "continentId":7,
+        "country":"Peru",
+        "currency_name":"Peruvian Nuevo Sol",
+        "continent":"South America",
+        "languages":[
+            
+        ],
+        "dish":"A Peruvian Primer, Ceviche, Lomo Saltado, Aji de Gallina, Papas a la Huancaina, Cuy, Causa, Rocoto Relleno",
+        "music":[
+            {"MusicVideo":"https://www.youtube.com/watch?v=UlUAW-4QDoE",
+            "Artist":"Alejandro y Maria Laura",
+            "SongTitle":"Sana sana"}
+        ],
+        "touristAttraction":"Machu Picchu, Cusco, Sacred Valley"
+        },
+
+        {
+        "continentId":3,
+        "country":"Philippines",
+        "currency_name":"Philippine Peso",
+        "continent":"Asia",
+        "languages":[
+            "Philippene Languages"
+        ],
+        "dish":"Adobo, Kare-Kare, Lechon, Sinigang, Crispy Pata, Sisig, Pancit Guisado, Bulalo",
+        "music":[
+            {"Music Video":"https://www.youtube.com/watch?v=1BOuU0z3BnI",
+            "Artist":"Ang Gatas At Ang Itlog (The Milk and The Eggs)",
+            "SongTitle": "Luz Morales"}
+            ],
+            "touristAttraction": "White Beach, Boracay, Manila Historical Sightseeing Tour, Shipwreck Diving, Coron, Mayon Volcano, Albay",
+            },
+
+            {
+            "continentId": 1,
+            "country": "Senegal",
+            "currency_name": "CFA Franc BCEAO",
+            "continent": "Africa",
+            "languages": [ "Diola, Ful, Malinke, Soninke, Wolof" ],
+            "dish": "mafi",
+            "music": [
+                {"MusicVideo": "https://www.youtube.com/watch?v=LhIUU2hxR30",
+                "Artist": "Youssou Ndour",
+                "SongTitle":"HELLO"}
+        ],
+        "touristAttraction":"Popenguine, Touba, Joal-Fadiouth"
+        },
+
+        {
+        "continentId":1,
+        "country":"South Africa",
+        "currency_name":"South African Rand",
         "continent":"Africa",
         "languages":[
-        "Bantu Swahili language",
-        "English"
+            
         ],
-        "dish":"Fish, Matoke, Mandazi",
+        "dish":"Biltong & droewors, Boerewors, Cape Malay curry, Malva pudding, Chakalaka & pap, Braai/Shisa nyama, Bunny chow, Amarula Don Pedro",
         "music":[
-        {"Music Video":"https://www.youtube.com/watch?v=CCmItvVgn6Q",
-        "Artist":"Zuchu ",
-        "Song Title":"Sukari"}
+            {"MusicVideo":"https://www.youtube.com/watch?v=P2NHpLvs2xU",
+            "Artist":"John Vuli Gate [Feat Ntosh Gazi & Colano]",
+            "SongTitle":"Mapara A Jazz"}
         ],
-        "touristAttraction": "Maasai Mara National Reserve, Amboseli National Reserve,Tsavo National Park"
-    }
-]
- 
-     
+        "touristAttraction":" Kruger National Park, Mpumalanga and Limpopo Provinces, Cape Town, Western Cape, The Garden Route"
+        },
+        {
+        "continentId":5,
+        "country":"Switzerland",
+        "currency_name":"Swiss Franc",
+        "continent":"Europe",
+        "languages":[
+            "French",
+            "German",
+            "Italian",
+            "Romansh"
+        ],
+        "dish":"Rösti, Birchermüesli, Swiss chocolate, Swiss cheese",
+        "music":[
+            {"Music Video":"https://www.youtube.com/watch?v=l-uz3zxpn6Y",
+            "Artist":null,
+            "Song Title":"Switzerland traditional welcome dance "}
+        ],
+        "touristAttraction":"The Matterhorn, Jungfraujoch, Interlaken, Lucerne"
+        },
+
+        {
+        "continentId":3,
+        "country":"China",
+        "currency_name":"Yuan Renminbi",
+        "continent":"Asia",
+        "languages":[
+            "Chinese",
+            "Dong",
+            "Hui",
+            "Mant¬öu",
+            "Miao",
+            "Mongolian",
+            "Puyi",
+            "Tibetan",
+            "Tujia",
+            "Uighur",
+            "Yi",
+            "Zhuang"
+        ],
+        "dish":"Peking Duck, rice, soy sauce, noodles, tea, chili oil, tofu",
+        "music":[
+            {"Music Video":"https://www.youtube.com/watch?v=6TuUm5mNMos",
+            "Artist":"Teresa Teng",
+            "Song Title":"Tiánmì mì (甜蜜蜜)"}
+        ],
+        "touristAttraction":"The Great Wall of China, The Forbidden City & the Imperial Palace, Beijing, The Terracotta Army"
+        },
+        {
+        "continentId":5,
+        "country":"Ukraine",
+        "currency_name":"Ukraine Hryvnia",
+        "continent":"Europe",
+        "languages":[
+            "Ukrainian",
+            "Hungarian",
+            "Polish",
+            "Yiddish",
+            "Rusyn"
+        ],
+        "dish":"Okroshka, Borscht, Solyanka",
+        "music":[
+            {"Music Video":"https://www.youtube.com/watch?v=mE_Zo1RNUN8",
+            "Artist":"Vivienne Mort",
+            "Song Title":" Гей, степами"}
+        ],
+        "touristAttraction":"Kamenets Podolsky Castle, Chernobyl,St. Sophia's Cathedral"
+        },
+
+        {
+            "continentId": 6,
+            "country": "United States",
+            "currency_name": "Dollar",
+            "continent": "North America",
+            "languages": [
+            "Chinese",
+            "Dutch",
+            "English",
+            "Eskimo Languages",
+            "French",
+            "German",
+            "Italian",
+            "Polish",
+            "Portuguese",
+            "Punjabi",
+            "Spanish",
+            "Ukrainian"],
+            "dish": "Texas Barbecue, burger, Bagel and Lox, Apple Pie",
+            "music": [
+                {"MusicVideo": "https://www.youtube.com/watch?v=RKGbjJarMeA",
+                "Artist": "Selena",
+                "SongTitle": "Bidi Bidi Bom Bom"}
+            ],
+            "touristAttraction": "Mount Rushmore, Navy Pier in Chicago, Great Smoky Mountains National Park, Bryce Canyon National Park"
+        }
+    ]
