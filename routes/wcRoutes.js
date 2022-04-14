@@ -1,6 +1,9 @@
+const basicAuth = require('express-basic-auth');
 const bcrypt = require("bcrypt");
 const saltRounds = 2;
 const { use } = require("bcrypt/promises");
+
+const apiKey = process.env.API_KEY;
 
 const res = require("express/lib/response");
 
@@ -18,6 +21,19 @@ const {
 const PORT = 3000;
 
 const routes = (app) => {
+app.use(basicAuth({
+  authorizer: dbAuthorizer,
+  authorizeAsync: true,
+  unauthorizedResponse: () => "You are not authorized to view this page"
+}))
+
+async function dbAuthorizer(username, password, callback) {
+  try {
+    const user = await User.findOne({where: {userName:username}});
+    let isValid = (user != null) 
+  }
+}
+
   const jwt = require("express-jwt");
   const jwks = require("jwks-rsa");
 
@@ -390,6 +406,26 @@ const routes = (app) => {
     let myLanguage = await Language.findByPk(req.params.languageId);
     res.json({ myContinent, myCountry, myLanguage });
   });
+
+ // create a language
+ app.post("/continents/:continentId/countries/:countryId/languages", async (req, res) => {
+  let newLanguage = await Language.create(req.body);
+  res.json({ newLanguage });
+});
+
+//update a language
+app.put("/continents/:continentId/countries/:countryId/languages/:languageId", async (req, res) => {
+  let updatedLanguage = await Language.update(req.body, {
+    where: { id: req.params.languageId },
+  });
+  res.json({ updatedLanguage });
+});
+
+// delete a language
+app.delete("/continents/:continentId/countries/:countryId/languages/:languageId", jwtCheck, async (req, res) => {
+  await Language.destroy({ where: { id: req.params.languageId } });
+  res.send(Language ? "language deleted" : "language deletion failed!");
+});
 
   app.get("/continents/:continentId/countries/:countryId/traditionalFoods", async (req, res) => {
     let myContinent = await Continent.findByPk(req.params.continentId);

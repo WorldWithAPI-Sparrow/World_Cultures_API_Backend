@@ -5,9 +5,10 @@ class Country extends Model {}
 
 Country.init(
   {
-    countryName: DataTypes.STRING,
-    
-  },
+    countryName: {
+      type: DataTypes.STRING,
+      unique: true
+  }},
   {
     sequelize,
     timestamps: false,
