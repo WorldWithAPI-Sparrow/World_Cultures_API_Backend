@@ -1,0 +1,21 @@
+[
+    {
+        "continentId": 1,
+        "country":"Kenya",
+        "currency_name":"Kenyan Shilling",
+        "continent":"Africa",
+        "languages":[
+        "Bantu Swahili language",
+        "English"
+        ],
+        "dish":"Fish, Matoke, Mandazi",
+        "music":[
+        {"Music Video":"https://www.youtube.com/watch?v=CCmItvVgn6Q",
+        "Artist":"Zuchu ",
+        "Song Title":"Sukari"}
+        ],
+        "touristAttraction": "Maasai Mara National Reserve, Amboseli National Reserve,Tsavo National Park"
+    }
+]
+ 
+     
