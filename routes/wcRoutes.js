@@ -33,6 +33,52 @@ const routes = (app) => {
     algorithms: ["RS256"],
   });
 
+  app.get('/tokens', async(req, res) => {
+    const options = { method: 'POST',
+    url: 'https://dev-z8lrysnv.us.auth0.com/oauth/token',
+    headers: { 'content-type': 'application/json' },
+    body: '{"client_id":"hJllsYBCP9rnagEC3UCCJ5U1IZMpUwxH","client_secret":"haKQmeKWteGPWtvKrR7f3jfjQNFdXw4GHxOAhE04c9RDI1KzWjccNkOPd5uqYkSN","audience":"https://dev-z8lrysnv.us.auth0.com/api/v2/","grant_type":"client_credentials"}' };
+  
+  request(options, function (error, response, body) {
+    if (error) throw new Error(error);
+    const jsonBody = JSON.parse(body)
+    const token = jsonBody.access_token
+    console.log("New JWT sent to authenticated user")
+    res.json(token)
+  
+    console.log(body);
+  });
+  })
+
+//   app.get('/tokens', async(req, res) => {
+//   const options = { method: 'POST',
+//   url: `${process.env.AUTH0_URL}`,
+//   headers: { 'content-type': 'application/json' },
+//   body: `{"client_id":${process.env.CLIENT_ID},"client_secret":${process.env.CLIENT_SECRET},"audience":${process.env.AUDIENCE},"grant_type":"client_credentials"}`
+// };
+
+// request(options, function (error, response, body) {
+//   if (error) throw new Error(error);
+//   const jsonBody = JSON.parse(body)
+//   const token = jsonBody.access_token
+//   console.log("New JWT sent to authenticated user")
+//   res.json(token)
+// });
+// })
+
+// const options = { method: 'POST',
+//   url: 'https://dev-z8lrysnv.us.auth0.com/oauth/token',
+//   headers: { 'content-type': 'application/json' },
+//   body: '{"client_id":"hJllsYBCP9rnagEC3UCCJ5U1IZMpUwxH","client_secret":"haKQmeKWteGPWtvKrR7f3jfjQNFdXw4GHxOAhE04c9RDI1KzWjccNkOPd5uqYkSN","audience":"https://dev-z8lrysnv.us.auth0.com/api/v2/","grant_type":"client_credentials"}' };
+
+// request(options, function (error, response, body) {
+//   if (error) throw new Error(error);
+
+//   console.log(body);
+// });
+
+
+
  // app.use(jwtCheck);
 //``````````````````````root``````````````````
   app.get('/', (req, res) => {
