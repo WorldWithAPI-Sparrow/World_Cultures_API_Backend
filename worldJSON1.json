@@ -2,6 +2,7 @@
     [
         {
            "continentId":4,
+           "countryId": 1,
            "country":"Australia",
            "currency_name":"Australian Dollar",
            "continent":"Australia",
@@ -25,6 +26,7 @@
         },
         {
            "continentId":3,
+           "countryId": 2,
            "country":"Bangladesh",
            "currency_name":"Bangladeshi Taka",
            "continent":"Asia",
@@ -47,6 +49,7 @@
         },
         {
            "continentId":7,
+           "countryId": 3,
            "country":"Brazil",
            "currency_name":"Brazilian Real",
            "continent":"South America",
@@ -67,6 +70,7 @@
         },
         {
            "continentId":1,
+           "countryId": 4,
            "country":"Cameroon",
            "currency_name":"CFA Franc BEAC",
            "continent":"Africa",
@@ -84,6 +88,7 @@
      
          {
            "continentId": 6,
+           "countryId": 5,
            "country": "Canada",
            "currency_name": "Canadian Dollar",
            "continent": "North America",
@@ -109,6 +114,7 @@
      
          {
            "continentId": 7,
+           "countryId": 6,
            "country": "Colombia",
            "currency_name": "Colombian Peso",
            "continent": "South America",
@@ -124,6 +130,7 @@
      
          {
            "continentId": 6,
+           "countryId": 7,
            "country": "Costa Rica",
            "currency_name": "Costa Rican Colon",
            "continent": "North America",
@@ -137,7 +144,8 @@
            "touristAttraction": "Manuel Antonio National Park, Arenal Volcano, Monteverde and the Cloud Forests"
          },
      
-                { "continentId": 1, 
+                { "continentId": 1,
+                    "countryId": 8, 
                 "country": "Egypt", 
                 "currency_name": "Egyptian Pound", 
                 "continent": "Africa",
@@ -152,6 +160,7 @@
                 },
                 {
                 "continentId":1,
+                "countryId": 9,
                 "country":"Gambia",
                 "currency_name":"Gambian Dalasi",
                 "continent":"Africa",
@@ -172,6 +181,7 @@
             },
             {
                 "continentId":5,
+                "countryId": 10,
                 "country":"Germany",
                 "currency_name":"Euro",
                 "continent":"Europe",
@@ -192,7 +202,8 @@
                 "touristAttraction":"Berlin's Brandenburg Gate, Cologne Cathedral, The Black Forest, Neuschwanstein"
                 },
             
-                {"continentId": 3, 
+                {"continentId": 3,
+                "countryId": 11, 
                 "country": "India", 
                 "currency_name": "Indian Rupee", 
                 "continent": "Asia", 
@@ -227,6 +238,7 @@
                 },
             
                 { "continentId": 5, 
+                    "countryId": 12,
                 "country": "Italy", 
                 "currency_name": "Euro", 
                 "continent": "Europe", 
@@ -242,6 +254,7 @@
             
                 {
                 "continentId": 6,
+                "countryId": 13,
                 "country": "Jamaica",
                 "currency_name": "Jamaican Dollar",
                 "continent": "North America",
@@ -256,6 +269,7 @@
             },
             {
                 "continentId": 3,
+                "countryId": 14,
                 "country": "Japan",
                 "currency_name": "Japanese Yen",
                 "continent": "Asia",
@@ -277,6 +291,7 @@
 
             {
                 "continentId":1,
+                "countryId": 15,
                 "country":"Kenya",
                 "currency_name":"Kenyan Shilling",
                 "continent":"Africa",
@@ -296,6 +311,7 @@
 
             { 
             "continentId": 1, 
+            "countryId": 16,
             "country": "Mali", 
             "currency_name": "CFA Franc BCEAO", 
             "continent": "Africa", 
@@ -311,6 +327,7 @@
 
         {
         "continentId":6,
+        "countryId": 17,
         "country":"Mexico",
         "currency_name":"Mexican Nuevo Peso",
         "continent":"North America",
@@ -328,7 +345,8 @@
             },
 
             { 
-            "continentId": 3, 
+            "continentId": 3,
+            "countryId": 18, 
             "country": "Nepal", 
             "currency_name": "Nepalese Rupee", 
             "continent": "Asia",
@@ -344,6 +362,7 @@
 
             {
             "continentId": 1,
+            "countryId": 19,
             "country": "Nigeria",
             "currency_name": "Nigerian Naira",
             "continent": "Africa",
@@ -359,6 +378,7 @@
 
         {
         "continentId":7,
+        "countryId": 20,
         "country":"Peru",
         "currency_name":"Peruvian Nuevo Sol",
         "continent":"South America",
@@ -376,6 +396,7 @@
 
         {
         "continentId":3,
+        "countryId": 21,
         "country":"Philippines",
         "currency_name":"Philippine Peso",
         "continent":"Asia",
@@ -393,6 +414,7 @@
 
             {
             "continentId": 1,
+            "countryId": 22,
             "country": "Senegal",
             "currency_name": "CFA Franc BCEAO",
             "continent": "Africa",
@@ -408,6 +430,7 @@
 
         {
         "continentId":1,
+        "countryId": 23,
         "country":"South Africa",
         "currency_name":"South African Rand",
         "continent":"Africa",
@@ -424,6 +447,7 @@
         },
         {
         "continentId":5,
+        "countryId": 24,
         "country":"Switzerland",
         "currency_name":"Swiss Franc",
         "continent":"Europe",
@@ -444,6 +468,7 @@
 
         {
         "continentId":3,
+        "countryId": 25,
         "country":"China",
         "currency_name":"Yuan Renminbi",
         "continent":"Asia",
@@ -471,6 +496,7 @@
         },
         {
         "continentId":5,
+        "countryId": 26,
         "country":"Ukraine",
         "currency_name":"Ukraine Hryvnia",
         "continent":"Europe",
@@ -492,6 +518,7 @@
 
         {
             "continentId": 6,
+            "countryId": 27,
             "country": "United States",
             "currency_name": "Dollar",
             "continent": "North America",
