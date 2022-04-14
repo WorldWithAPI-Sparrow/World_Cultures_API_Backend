@@ -125,9 +125,9 @@ const createTouristAttractions = async () => {
 
 //Need countryID for language
 const createLanguages = async () => {
-  const Languages = languagesJSON.map((l) => ({
+  const Languages = worldJSON1.map((l) => ({
     myCountry: l.country,
-    language: l.languages.join(),
+    language: l.languages.toString(),
   }));
   return Languages;
 };
@@ -164,10 +164,7 @@ const seed = async () => {
     TraditionalFood.create(traditionalFood)
   );
 
-  const musicPromises = musics.map((music) => Music.create(music));
-  const musicVideoPromises = musics.map((music) => Music.create(music));
-  const songNamePromises = musics.map((music) => Music.create(music));
-  const artistNamePromises = musics.map((music) => Music.create(music));
+  const musicPromises = musics.map((music) => Music.create({ music }));
 
   const touristAttractionPromises = touristAttractions.map(
     (touristAttraction) => TouristAttraction.create(touristAttraction)
