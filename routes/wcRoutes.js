@@ -32,6 +32,11 @@ const routes = (app) => {
     issuer: "https://dev-z8lrysnv.us.auth0.com/",
     algorithms: ["RS256"],
   });
+//``````````````````````root``````````````````
+  app.get('/', (req, res) => {
+    res.send('<h1>Howdy! ¡Hola! Bonjour! Bonjour! Konnichiwa! Guten Tag! Asalaam alaikum! Asalaam alaikum! Shalom!</h1><p> Welcome to the World of Cultures API</p>');
+  })
+
   //---------------------Routes for Continents ---------------------------------------
   //Get all continents
   app.get("/continents", jwtCheck, async (req, res) => {
