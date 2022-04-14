@@ -5,7 +5,7 @@ class Language extends Model {}
 
 Language.init(
   {
-    myCountry: DataTypes.STRING,
+    //myCountry: DataTypes.STRING,
     language: DataTypes.STRING,
   },
   {
