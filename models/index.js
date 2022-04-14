@@ -23,11 +23,11 @@ Music.belongsTo(Country);
 Country.hasMany(Music);
 
 TraditionalFood.belongsTo(Country, {
-  sourceKey: "countryName",
+  targetKey: "countryName",
   foreignKey: "countryName",
 });
 Country.hasMany(TraditionalFood, {
-  sourceKey: "title",
+  targetKey: "title",
   foreignKey: "countryName",
 });
 

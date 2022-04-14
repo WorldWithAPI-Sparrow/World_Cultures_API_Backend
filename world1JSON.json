@@ -1,5 +1,5 @@
 [
-    {
+  {
         "continentId": 4,
         "country": "Australia",
         "currency_name": "Australian Dollar",
@@ -20,5 +20,5 @@
           "SongTitle": "Great Southern Land"}
         ],
         "touristAttraction": "Cable Beach Broome, Fraser Island"
-      }
+  }
 ]
