@@ -1,0 +1,24 @@
+[
+    {
+        "continentId": 4,
+        "country": "Australia",
+        "currency_name": "Australian Dollar",
+        "continent": "Australia",
+        "languages": [
+            "Arabic",
+            "Canton Chinese",
+            "English",
+            "German",
+            "Greek",
+            "Italian",
+            "Serbo-Croatian",
+            "'Vietnamese"], 
+        "dish": "Meat pie, Roast lamb",
+       "music": [
+         { "MusicVideo": "https://www.youtube.com/watch?v=IOBd0PwQouE",
+          "Artist": "Icehouse",
+          "SongTitle": "Great Southern Land"}
+        ],
+        "touristAttraction": "Cable Beach Broome, Fraser Island"
+      }
+]

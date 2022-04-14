@@ -19,7 +19,8 @@ const traditionalFoodJSON = require("./node_modules/country-json/src/country-by-
 const countriesJSON = require("./node_modules/country-json/src/country-by-continent.json");
 const languagesJSON = require("./node_modules/country-json/src/country-by-languages.json");
 const currenciesJSON = require("./node_modules/country-json/src/country-by-currency-name.json");
-console.log(traditionalFoodJSON);
+const world1JSON = require("./world1JSON.json");
+//console.log(traditionalFoodJSON);
 
 //const newJSON = {
 //...traditionalFoodJSON,
@@ -83,32 +84,48 @@ const createContinents = async () => {
 
 //Need to add continentID
 const createCountries = async () => {
-  const countries = countriesJSON.map((c) => c.country);
+  // const countries = countriesJSON.map((c) => c.country);
+  const countries = world1JSON.map((c) => ({
+    countryName: c.country,
+    ContinentId: c.continentId,
+  }));
 
   return countries;
 };
 
 //Need countryID for traditionalFood
 const createTraditionalFoods = async () => {
-  const traditionalFoods = traditionalFoodJSON.map((f) => ({
-    myCountry: f.country,
+  // const traditionalFoods = traditionalFoodJSON.map
+  const traditionalFoods = world1JSON.map((f) => ({
+    //myCountry: f.country,
     traditionalDish: f.dish,
+    countryName: f.country,
   }));
 
   return traditionalFoods;
 };
 
 const createMusics = async () => {
-  const musics = [
-    {
-      songName: "Mar eske Tuwaf (Fikir Eske Meqabir)",
-      artistName: "Teddy Afro",
-      musicVideo: "https://www.youtube.com/watch?v=mFzHpK7ibfo",
-      CountryId: 1,
-    },
-  ];
+  const musics = world1JSON.map((m) => ({
+    musicVideo: m.MusicVideo,
+    artistName: m.Artist,
+    songName: m.SongName,
+  }));
+
   return musics;
 };
+
+// const createMusics = async () => {
+//   const musics = [
+//     {
+//       songName: "Mar eske Tuwaf (Fikir Eske Meqabir)",
+//       artistName: "Teddy Afro",
+//       musicVideo: "https://www.youtube.com/watch?v=mFzHpK7ibfo",
+//       CountryId: 1,
+//     },
+//   ];
+//   return musics;
+// };
 
 const createTouristAttractions = async () => {
   const touristAttractions = [
@@ -153,9 +170,7 @@ const seed = async () => {
     Continent.create(continent)
   );
   //const countryPromises = countries.map((country) => Country.create(country));
-  const countryPromises = countries.map((country) =>
-    Country.create({ countryName: country })
-  );
+  const countryPromises = countries.map((country) => Country.create(country));
 
   const traditionalFoodPromises = traditionalFoods.map((traditionalFood) =>
     TraditionalFood.create(traditionalFood)

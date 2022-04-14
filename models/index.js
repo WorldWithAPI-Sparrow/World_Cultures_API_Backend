@@ -22,8 +22,19 @@ Country.hasMany(Language);
 Music.belongsTo(Country);
 Country.hasMany(Music);
 
-TraditionalFood.belongsTo(Country);
-Country.hasMany(TraditionalFood);
+TraditionalFood.belongsTo(Country, {
+  sourceKey: "countryName",
+  foreignKey: "countryName",
+});
+Country.hasMany(TraditionalFood, {
+  sourceKey: "title",
+  foreignKey: "countryName",
+});
+
+// Team.hasMany(Player, {
+//   foreignKey: 'clubId'
+// });
+// Player.belongsTo(Team);
 
 TouristAttraction.belongsTo(Country);
 Country.hasMany(TouristAttraction);
