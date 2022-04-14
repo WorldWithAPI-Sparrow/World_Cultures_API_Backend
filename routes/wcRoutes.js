@@ -305,11 +305,46 @@ const routes = (app) => {
 
   //---------------------Routes ---------------------------------------
 
+  app.get("/continents/:continentId/countries", async (req, res) => {
+    console.log(req.params)
+    let myContinent = await Continent.findByPk(req.params.continentId);
+    let countries = await Country.findAll();
+    res.json({ myContinent, countries });
+  });
+
   app.get("/continents/:continentId/countries/:countryId", async (req, res) => {
     console.log(req.params)
     let myContinent = await Continent.findByPk(req.params.continentId);
     let myCountry = await Country.findByPk(req.params.countryId);
     res.json({ myContinent, myCountry });
+  });
+
+    // create a country
+    app.post("/continents/:continentId/countries", async (req, res) => {
+      let newCountry = await Country.create(req.body);
+      res.json({ newCountry });
+    });
+  
+    //update a country
+    app.put("/continents/:continentId/countries/:countryId", async (req, res) => {
+      let updatedCountry = await Country.update(req.body, {
+        where: { id: req.params.countryId },
+      });
+      res.json({ updatedCountry });
+    });
+  
+    // delete a country
+    app.delete("/continents/:continentId/countries/:countryId", jwtCheck, async (req, res) => {
+      await Country.destroy({ where: { id: req.params.countryId } });
+      res.send(Country ? "Country deleted" : "Country deletion failed!");
+    });
+  
+
+  app.get("/continents/:continentId/countries/:countryId/musics", async (req, res) => {
+    let myContinent = await Continent.findByPk(req.params.continentId);
+    let myCountry = await Country.findByPk(req.params.countryId);
+    let musics = await Music.findAll();
+    res.json({ myContinent, myCountry, musics });
   });
 
     //Get country and music by ID
@@ -321,6 +356,32 @@ const routes = (app) => {
       res.json({ myContinent, myCountry, myMusic });
     });
 
+    app.post("/continents/:continentId/countries/:countryId/musics", async (req, res) => {
+      let newMusic = await Music.create(req.body);
+      res.json({ newMusic });
+    });
+  
+    //update a music
+    app.put("/continents/:continentId/countries/:countryId/musics/:musicId", async (req, res) => {
+      let updatedMusic = await Music.update(req.body, {
+        where: { id: req.params.musicId },
+      });
+      res.json({ updatedMusic });
+    });
+  
+    // delete a music
+    app.delete("/continents/:continentId/countries/:countryId/musics/:musicId", jwtCheck, async (req, res) => {
+      await Music.destroy({ where: { id: req.params.musicId } });
+      res.send(Music ? "music deleted" : "music deletion failed!");
+    });
+
+    app.get("/continents/:continentId/countries/:countryId/languages", async (req, res) => {
+      let myContinent = await Continent.findByPk(req.params.continentId);
+      let myCountry = await Country.findByPk(req.params.countryId);
+      let languages = await Language.findAll();
+      res.json({ myContinent, myCountry, languages });
+    });
+
   //Get country and Language by ID
   app.get("/continents/:continentId/countries/:countryId/languages/:languageId", async (req, res) => {
     console.log(req.params)
@@ -328,6 +389,13 @@ const routes = (app) => {
     let myCountry = await Country.findByPk(req.params.countryId);
     let myLanguage = await Language.findByPk(req.params.languageId);
     res.json({ myContinent, myCountry, myLanguage });
+  });
+
+  app.get("/continents/:continentId/countries/:countryId/traditionalFoods", async (req, res) => {
+    let myContinent = await Continent.findByPk(req.params.continentId);
+    let myCountry = await Country.findByPk(req.params.countryId);
+    let traditionalFoods = await TraditionalFood.findAll();
+    res.json({ myContinent, myCountry, traditionalFoods });
   });
 
   //Get country and traditionalFoods by ID
@@ -340,6 +408,37 @@ const routes = (app) => {
       res.json({ myContinent, myCountry, myTraditionalFood });
     }
   );
+
+    // create a traditionalFood
+    app.post("/continents/:continentId/countries/:countryId/traditionalFoods", async (req, res) => {
+      let newTraditionalFood = await TraditionalFood.create(req.body);
+      res.json({ newTraditionalFood });
+    });
+  
+    //update a traditionalFood
+    app.put("/continents/:continentId/countries/:countryId/traditionalFoods/:traditionalFoodId", async (req, res) => {
+      let updatedTraditionalFood = await TraditionalFood.update(req.body, {
+        where: { id: req.params.traditionalFoodId },
+      });
+      res.json({ updatedTraditionalFood });
+    });
+  
+    // delete a traditionalFood
+    app.delete("/continents/:continentId/countries/:countryId/traditionalFoods/:traditionalFoodId", jwtCheck, async (req, res) => {
+      await TraditionalFood.destroy({ where: { id: req.params.traditionalFoodId } });
+      res.send(
+        TraditionalFood
+          ? "traditionalFood deleted"
+          : "traditionalFood deletion failed!"
+      );
+    });
+
+  app.get("/continents/:continentId/countries/:countryId/touristAttractions", async (req, res) => {
+    let myContinent = await Continent.findByPk(req.params.continentId);
+    let myCountry = await Country.findByPk(req.params.countryId);
+    let touristAttractions = await TouristAttraction.findAll();
+    res.json({ myContinent, myCountry, touristAttractions });
+  });
 
   //Get country and touristAttractions by ID
   app.get(
@@ -354,6 +453,38 @@ const routes = (app) => {
     }
   );
 
+   // create a touristAttraction
+   app.post("/continents/:continentId/countries/:countryId/touristAttractions", async (req, res) => {
+    let newTouristAttraction = await TouristAttraction.create(req.body);
+    res.json({ newTouristAttraction });
+  });
+
+  //update a touristAttraction
+  app.put("/continents/:continentId/countries/:countryId/touristAttractions/:touristAttractionId", async (req, res) => {
+    let updatedTouristAttraction = await TouristAttraction.update(req.body, {
+      where: { id: req.params.touristAttractionId },
+    });
+    res.json({ updatedTouristAttraction });
+  });
+
+  // delete a touristAttraction
+  app.delete("/continents/:continentId/countries/:countryId/touristAttractions/:touristAttractionId", jwtCheck, async (req, res) => {
+    await TouristAttraction.destroy({ where: { id: req.params.touristAttractionId } });
+    res.send(
+      TouristAttraction
+        ? "touristAttraction deleted"
+        : "touristAttraction deletion failed!"
+    );
+  });
+
+  app.get("/continents/:continentId/countries/:countryId/currencies", async (req, res) => {
+    let myContinent = await Continent.findByPk(req.params.continentId);
+    let myCountry = await Country.findByPk(req.params.countryId);
+    let currencies = await Currency.findAll();
+    res.json({ myContinent, myCountry, currencies });
+  });
+
+
   //Get country and currency by ID
   app.get("/continents/:continentId/countries/:countryId/currencies/:currencyId", async (req, res) => {
     let myContinent = await Continent.findByPk(req.params.continentId);
@@ -361,6 +492,26 @@ const routes = (app) => {
     let myCurrency = await Currency.findByPk(req.params.currencyId);
     res.json({ myContinent, myCountry, myCurrency });
   });
+
+    // create a currencies
+    app.post("/continents/:continentId/countries/:countryId/currencies", async (req, res) => {
+      let newCurrency = await Currency.create(req.body);
+      res.json({ newCurrency });
+    });
+  
+    //update a currencies
+    app.put("/continents/:continentId/countries/:countryId/currencies/:currencyId", async (req, res) => {
+      let updatedCurrency = await Currency.update(req.body, {
+        where: { id: req.params.currencyId },
+      });
+      res.json({ updatedCurrency });
+    });
+  
+    // delete a currencies
+    app.delete("/continents/:continentId/countries/:countryId/currencies/:currencyId", jwtCheck, async (req, res) => {
+      await Currency.destroy({ where: { id: req.params.currencyId } });
+      res.send(Currency ? "currency deleted" : "currency deletion failed!");
+    });
 
   //   app
   //     .route("/country")
