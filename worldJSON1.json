@@ -18,9 +18,9 @@
             ],
            "dish":"Meat pie,Roast lamb",
            "music":[
-              {"Music Video":"https://www.youtube.com/watch?v=IOBd0PwQouE",
+              {"MusicVideo":"https://www.youtube.com/watch?v=IOBd0PwQouE",
               "Artist":"Icehouse",
-              "Song Title":"Great Southern Land"}
+              "SongTitle":"Great Southern Land"}
            ],
            "touristAttraction": "Cable Beach Broome, Fraser Island"
         },
@@ -41,9 +41,9 @@
            ],
            "dish":"Rice, Fish, Chicken Korma",
            "music":[
-              {"Music Video":"https://www.youtube.com/watch?v=8AXpse21GDA",
+              {"MusicVideo":"https://www.youtube.com/watch?v=8AXpse21GDA",
               "Artist":"BIPADTARAN DAS BAUL",
-              "Song Title":"Polli Geeti Majhi Baiya Jao "}
+              "SongTitle":"Polli Geeti Majhi Baiya Jao "}
            ],
            "touristAttraction":"Cox's Bazar"
         },
@@ -62,9 +62,9 @@
            ],
            "dish":"Feijoada",
            "music":[
-              {"Music Video":"https://www.youtube.com/watch?v=r0mNwyywHIY",
+              {"MusicVideo":"https://www.youtube.com/watch?v=r0mNwyywHIY",
               "Artist":"Malvada ",
-              "Song Title":"Zé Felipe "}
+              "SongTitle":"Zé Felipe "}
            ],
            "touristAttraction": "Cristo Redentor and Corcovado, Rio de Janeiro, Sugar Loaf, Rio de Janeiro"
         },
@@ -79,9 +79,9 @@
            ],
            "dish": "Fufu, Brochettes, Sangah, Mbanga, Eru and water fufu.",
            "music":[
-              {"Music Video":"https://www.youtube.com/watch?v=rZm-olxxoQc",
+              {"MusicVideo":"https://www.youtube.com/watch?v=rZm-olxxoQc",
               "Artist":"Chuzih",
-              "Song Title": "Asaba _ Mon Bébé"}
+              "SongTitle": "Asaba _ Mon Bébé"}
            ],
            "touristAttraction": "Yaounde, Maroua,Limbe"
          },
@@ -105,9 +105,9 @@
            ],
          "dish": "Kraft Dinner" ,
           "music": [
-             {"Music Video": "https://www.youtube.com/watch?v=zo_S13SYeZw",
+             {"MusicVideo": "https://www.youtube.com/watch?v=zo_S13SYeZw",
              "Artist": "Sam Roberts",
-             "Song Title": "Canadian Dream"}
+             "SongTitle": "Canadian Dream"}
            ],
            "touristAttraction": "Gros Morne National Park, Calgary Stampede, Victorias Inner Harbour"
          },
@@ -121,9 +121,9 @@
            "languages": "Spanish",
            "dish": "Arepas, Ajiaco ,Bandeja Paisa, Cholao, Lulada",
            "music": [
-             {"Music Video": "https://www.youtube.com/watch?v=4IzYE_e5POg",
+             {"MusicVideo": "https://www.youtube.com/watch?v=4IzYE_e5POg",
              "Artist": "Morat ",
-             "Song Title": "Llamada Perdida"}
+             "SongTitle": "Llamada Perdida"}
            ],
            "touristAttraction": "Cartagena, Medellin, Eje Cafetero"
          },
@@ -173,9 +173,9 @@
                 ],
                 "dish":"Domoda",
                 "music":[
-                {    "Music Video":"https://www.youtube.com/watch?v=JigBMU5tPaI",
+                {    "MusicVideo":"https://www.youtube.com/watch?v=JigBMU5tPaI",
                     "Artist":"Bright Stars Entertainment ft Barhama ",
-                    "Song Title":"Ranha Bisap"}
+                    "SongTitle":"Ranha Bisap"}
                 ],
                 "touristAttraction":"Abuko Nature Reserve, Banjul,The Albert Market, Brufut Beach"
             },
@@ -195,9 +195,9 @@
                 ],
                 "dish":"Currywurst, Sauerbraten, Bratwurst",
                 "music":[
-                {    "Music Video":"https://www.youtube.com/watch?v=8fCV2F6u5mU",
+                {    "MusicVideo":"https://www.youtube.com/watch?v=8fCV2F6u5mU",
                     "Artist":"Goldried Quintett",
-                    "Song Title":"German Folk Music"}
+                    "SongTitle":"German Folk Music"}
                 ],
                 "touristAttraction":"Berlin's Brandenburg Gate, Cologne Cathedral, The Black Forest, Neuschwanstein"
                 },
@@ -405,7 +405,7 @@
         ],
         "dish":"Adobo, Kare-Kare, Lechon, Sinigang, Crispy Pata, Sisig, Pancit Guisado, Bulalo",
         "music":[
-            {"Music Video":"https://www.youtube.com/watch?v=1BOuU0z3BnI",
+            {"MusicVideo":"https://www.youtube.com/watch?v=1BOuU0z3BnI",
             "Artist":"Ang Gatas At Ang Itlog (The Milk and The Eggs)",
             "SongTitle": "Luz Morales"}
             ],
@@ -459,9 +459,9 @@
         ],
         "dish":"Rösti, Birchermüesli, Swiss chocolate, Swiss cheese",
         "music":[
-            {"Music Video":"https://www.youtube.com/watch?v=l-uz3zxpn6Y",
+            {"MusicVideo":"https://www.youtube.com/watch?v=l-uz3zxpn6Y",
             "Artist":null,
-            "Song Title":"Switzerland traditional welcome dance "}
+            "SongTitle":"Switzerland traditional welcome dance "}
         ],
         "touristAttraction":"The Matterhorn, Jungfraujoch, Interlaken, Lucerne"
         },
@@ -488,9 +488,9 @@
         ],
         "dish":"Peking Duck, rice, soy sauce, noodles, tea, chili oil, tofu",
         "music":[
-            {"Music Video":"https://www.youtube.com/watch?v=6TuUm5mNMos",
+            {"MusicVideo":"https://www.youtube.com/watch?v=6TuUm5mNMos",
             "Artist":"Teresa Teng",
-            "Song Title":"Tiánmì mì (甜蜜蜜)"}
+            "SongTitle":"Tiánmì mì (甜蜜蜜)"}
         ],
         "touristAttraction":"The Great Wall of China, The Forbidden City & the Imperial Palace, Beijing, The Terracotta Army"
         },
@@ -509,9 +509,9 @@
         ],
         "dish":"Okroshka, Borscht, Solyanka",
         "music":[
-            {"Music Video":"https://www.youtube.com/watch?v=mE_Zo1RNUN8",
+            {"MusicVideo":"https://www.youtube.com/watch?v=mE_Zo1RNUN8",
             "Artist":"Vivienne Mort",
-            "Song Title":" Гей, степами"}
+            "SongTitle":" Гей, степами"}
         ],
         "touristAttraction":"Kamenets Podolsky Castle, Chernobyl,St. Sophia's Cathedral"
         },

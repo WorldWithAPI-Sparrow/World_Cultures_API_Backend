@@ -105,9 +105,9 @@ const createTraditionalFoods = async () => {
 
 const createMusics = async () => {
   const musics = worldJSON1.map((m) => ({
-    musicVideo: m.MusicVideo,
-    songName: m.SongTitle,
-    artistName: m.Artist,
+    musicVideo: m.MusicVideo.toString(),
+    songName: m.SongTitle.toString(),
+    artistName: m.Artist.toString(),
     CountryId: m.countryId,
   }));
 
