@@ -56,8 +56,7 @@ _Production_
 -   Signup and login forms for Users
 
 _Images_  
-
-ERD Sequence diagram  
+ERD   
 _Future Work_  
 
 -   Access CountryId as a foreign key in all the associations
@@ -68,5 +67,4 @@ _Team Members_
 2.  Anuja Surawashi
 3.  Amanda Renfro
 4.  Jannatul Bakia Diba
-
 5. Michael Dunn-OConnor (Coach)
