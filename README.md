@@ -56,7 +56,7 @@ _Production_
 -   Signup and login forms for Users
 
 _Images_  
-ERD Sequence diagram  
+ERD   
 _Future Work_  
 
 -   Access CountryId as a foreign key in all the associations
