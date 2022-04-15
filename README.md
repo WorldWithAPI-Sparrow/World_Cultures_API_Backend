@@ -60,6 +60,7 @@ _Images_
 <img src="https://github.com/WorldWithAPI-Sparrow/World_Cultures_API_Backend/blob/main/WorldAPI_ERD.png" alt="ERD Diagram" width="500" height="600">
 
 <h2> kanban board </h2>
+<img src="https://github.com/WorldWithAPI-Sparrow/World_Cultures_API_Backend/blob/main/kanban.PNG">
 
 _Future Work_  
 
