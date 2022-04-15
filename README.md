@@ -56,7 +56,11 @@ _Production_
 -   Signup and login forms for Users
 
 _Images_  
-ERD   
+<h2>ERD Diagram</h2>
+<img src="https://github.com/WorldWithAPI-Sparrow/World_Cultures_API_Backend/blob/main/WorldAPI_ERD.png" alt="ERD Diagram" width="500" height="600">
+
+<h2> kanban board </h2>
+
 _Future Work_  
 
 -   Access CountryId as a foreign key in all the associations
