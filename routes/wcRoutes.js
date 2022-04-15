@@ -345,15 +345,20 @@ const routes = (app) => {
 
   // create user
   app.post("/users", async (req, res) => {
-    const name = req.body.name;
-    const password = req.body.password;
-
-    bcrypt.hash(password, saltRounds, async function (err, hash) {
+    bcrypt.hash(req.body.userPassword, saltRounds, async function (err, hash) {
+      const name = req.body.userName;
       const newUser = await User.create({ userName: name, userPassword: hash });
       console.log(hash);
       res.json({ newUser });
     });
   });
+
+  // delete a user
+  app.delete("/users/:id", jwtCheck, async (req, res) => {
+    await User.destroy({ where: { id: req.params.id } });
+    res.send(User ? "user deleted" : "user deletion failed!");
+  });
+
 
   //---------------------Routes ---------------------------------------
 
