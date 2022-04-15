@@ -67,5 +67,4 @@ _Team Members_
 2.  Anuja Surawashi
 3.  Amanda Renfro
 4.  Jannatul Bakia Diba
-
 5. Michael Dunn-OConnor (Coach)
