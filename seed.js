@@ -15,18 +15,17 @@ const {
   User,
 } = require("./models/index");
 
-const traditionalFoodJSON = require("./node_modules/country-json/src/country-by-national-dish.json");
-const countriesJSON = require("./node_modules/country-json/src/country-by-continent.json");
-const languagesJSON = require("./node_modules/country-json/src/country-by-languages.json");
-const currenciesJSON = require("./node_modules/country-json/src/country-by-currency-name.json");
+const worldJSON1 = require("./worldJSON1.json");
+//console.log(traditionalFoodJSON);
 
 //const newJSON = {
 //...traditionalFoodJSON,
 //...countriesJSON,
 //...continentsJSON,
 //...languagesJSON,
+// ...currenciesJSON,
 //};
-//console.log(newJSON);
+// console.log(newJSON);
 
 const createUsers = async () => {
   let pw1 = await bcrypt.hash("myPassword", 2);
@@ -79,58 +78,59 @@ const createContinents = async () => {
   return continents;
 };
 
-//Need to add continentID
 const createCountries = async () => {
-  const countries = countriesJSON.map((c) => c.country);
+  const countries = worldJSON1.map((c) => ({
+    countryName: c.country,
+    ContinentId: c.continentId,
+  }));
 
   return countries;
 };
 
 //Need countryID for traditionalFood
 const createTraditionalFoods = async () => {
-  const traditionalFoods = traditionalFoodJSON.map((f) => ({
+  const traditionalFoods = worldJSON1.map((f) => ({
     myCountry: f.country,
     traditionalDish: f.dish,
+    CountryId: f.countryId,
   }));
 
   return traditionalFoods;
 };
 
 const createMusics = async () => {
-  const musics = [
-    {
-      songName: "Mar eske Tuwaf (Fikir Eske Meqabir)",
-      artistName: "Teddy Afro",
-      musicVideo: "https://www.youtube.com/watch?v=mFzHpK7ibfo",
-      CountryId: 1,
-    },
-  ];
+  const musics = worldJSON1.map((m) => ({
+    musicVideo: m.music[0].MusicVideo,
+    songName: m.music[0].SongTitle,
+    artistName: m.music[0].Artist,
+    CountryId: m.countryId,
+  }));
+
   return musics;
 };
 
 const createTouristAttractions = async () => {
-  const touristAttractions = [
-    { placesToVisit: "Axum", CountryId: 1 },
-    { placesToVisit: "Lalibela", CountryId: 1 },
-    { placesToVisit: "The National Museum of Ethiopia", CountryId: 1 },
-  ];
+  const touristAttractions = worldJSON1.map((ta) => ({
+    placesToVisit: ta.touristAttraction,
+    myCountry: ta.country,
+    CountryId: ta.countryId,
+  }));
   return touristAttractions;
 };
 
-//Need countryID for language
 const createLanguages = async () => {
-  const Languages = languagesJSON.map((l) => ({
+  const Languages = worldJSON1.map((l) => ({
     myCountry: l.country,
-    language: l.languages.join(),
+    language: l.languages.toString(),
   }));
   return Languages;
 };
 
-//Need countryID for currency
 const createCurrencies = async () => {
-  const currencies = currenciesJSON.map((cu) => ({
+  const currencies = worldJSON1.map((cu) => ({
     myCountry: cu.country,
     currency: cu.currency_name,
+    CountryId: cu.countryId,
   }));
 
   return currencies;
@@ -150,15 +150,10 @@ const seed = async () => {
   const continentPromises = continents.map((continent) =>
     Continent.create(continent)
   );
-  //const countryPromises = countries.map((country) => Country.create(country));
-  const countryPromises = countries.map((country) =>
-    Country.create({ countryName: country })
-  );
-
+  const countryPromises = countries.map((country) => Country.create(country));
   const traditionalFoodPromises = traditionalFoods.map((traditionalFood) =>
     TraditionalFood.create(traditionalFood)
   );
-
   const musicPromises = musics.map((music) => Music.create(music));
   const touristAttractionPromises = touristAttractions.map(
     (touristAttraction) => TouristAttraction.create(touristAttraction)
