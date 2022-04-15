@@ -78,7 +78,6 @@ const createContinents = async () => {
   return continents;
 };
 
-//Need to add continentID
 const createCountries = async () => {
   const countries = worldJSON1.map((c) => ({
     countryName: c.country,
@@ -119,7 +118,6 @@ const createTouristAttractions = async () => {
   return touristAttractions;
 };
 
-//Need countryID for language
 const createLanguages = async () => {
   const Languages = worldJSON1.map((l) => ({
     myCountry: l.country,
@@ -128,7 +126,6 @@ const createLanguages = async () => {
   return Languages;
 };
 
-//Need countryID for currency
 const createCurrencies = async () => {
   const currencies = worldJSON1.map((cu) => ({
     myCountry: cu.country,
@@ -153,15 +150,11 @@ const seed = async () => {
   const continentPromises = continents.map((continent) =>
     Continent.create(continent)
   );
-  //const countryPromises = countries.map((country) => Country.create(country));
   const countryPromises = countries.map((country) => Country.create(country));
-
   const traditionalFoodPromises = traditionalFoods.map((traditionalFood) =>
     TraditionalFood.create(traditionalFood)
   );
-
   const musicPromises = musics.map((music) => Music.create(music));
-
   const touristAttractionPromises = touristAttractions.map(
     (touristAttraction) => TouristAttraction.create(touristAttraction)
   );
