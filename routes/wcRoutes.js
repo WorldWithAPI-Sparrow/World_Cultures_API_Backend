@@ -84,7 +84,7 @@ const routes = (app) => {
  // app.use(jwtCheck);
 //``````````````````````root``````````````````
   app.get('/', (req, res) => {
-    res.send('<h1>Howdy! ¡Hola! Bonjour! Konnichiwa! Guten Tag! Asalaam alaikum! Shalom!</h1><p> Welcome to the World of Cultures API</p>');
+    res.send('<h1>Howdy! ¡Hola! Bonjour! Konnichiwa! Guten Tag! Asalaam alaikum! Shalom!</h1></br><p> Welcome to the World of Cultures API</p>');
   })
 
   //---------------------Routes for Continents ---------------------------------------
@@ -164,7 +164,7 @@ const routes = (app) => {
 
   //Get language by ID
   app.get("/languages/:id", async (req, res) => {
-    let language = await Languages.findByPk(req.params.id);
+    let language = await Language.findByPk(req.params.id);
     res.json({ language });
   });
 
@@ -339,20 +339,47 @@ const routes = (app) => {
     res.json({ users });
   });
 
+
   // read one user by id
   app.get("/users/:id", jwtCheck, async (req, res) => {
     let user = await User.findByPk(req.params.id);
     res.json({ user });
   });
-
-  // create user
-  app.post("/users", async (req, res) => {
-    bcrypt.hash(req.body.userPassword, saltRounds, async function (err, hash) {
+    
+  // creating new user 
+  app.post("/signup", jwtCheck, async (req, res) => {
+    const name = req.body.name
+    const password = req.body.password
+  
+    bcrypt.hash(password, saltRounds, async function (err, hash) {
       const name = req.body.userName;
       const newUser = await User.create({ userName: name, userPassword: hash });
       console.log(hash);
       res.json({ newUser });
+      });
+       
     });
+
+ 
+   // login for existing user
+  app.post('/login', jwtCheck, async (req,res) =>{
+    const singleUser = await User.findOne({
+      where: {
+        userName: req.body.name,         
+        }
+    })      
+    console.log(req.params)
+    if(!signleUser) {
+      res.send('user not found')
+    } else {
+      bcrypt.compare(req.body.password, singleUser.password, async function(err, result){
+        if(result){
+          res.json(singleUser)
+        }else {
+          res.send("Passwords don't match")
+        }
+      })
+    }
   });
 
   // delete a user
