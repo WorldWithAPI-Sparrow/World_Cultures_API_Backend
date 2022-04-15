@@ -15,10 +15,6 @@ const {
   User,
 } = require("./models/index");
 
-const traditionalFoodJSON = require("./node_modules/country-json/src/country-by-national-dish.json");
-const countriesJSON = require("./node_modules/country-json/src/country-by-continent.json");
-const languagesJSON = require("./node_modules/country-json/src/country-by-languages.json");
-const currenciesJSON = require("./node_modules/country-json/src/country-by-currency-name.json");
 const worldJSON1 = require("./worldJSON1.json");
 //console.log(traditionalFoodJSON);
 
