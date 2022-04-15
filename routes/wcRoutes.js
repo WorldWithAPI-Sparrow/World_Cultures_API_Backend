@@ -84,7 +84,7 @@ const routes = (app) => {
  // app.use(jwtCheck);
 //``````````````````````root``````````````````
   app.get('/', (req, res) => {
-    res.send('<h1>Howdy! ¡Hola! Bonjour! Konnichiwa! Guten Tag! Asalaam alaikum! Shalom!</h1><p> Welcome to the World of Cultures API</p>');
+    res.send('<h1>Howdy! ¡Hola! Bonjour! Konnichiwa! Guten Tag! Asalaam alaikum! Shalom!</h1></br><p> Welcome to the World of Cultures API</p>');
   })
 
   //---------------------Routes for Continents ---------------------------------------
@@ -164,7 +164,7 @@ const routes = (app) => {
 
   //Get language by ID
   app.get("/languages/:id", async (req, res) => {
-    let language = await Languages.findByPk(req.params.id);
+    let language = await Language.findByPk(req.params.id);
     res.json({ language });
   });
 
