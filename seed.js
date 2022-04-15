@@ -15,6 +15,17 @@ const {
   User,
 } = require("./models/index");
 
+const worldJSON1 = require("./worldJSON1.json");
+//console.log(traditionalFoodJSON);
+
+//const newJSON = {
+//...traditionalFoodJSON,
+//...countriesJSON,
+//...continentsJSON,
+//...languagesJSON,
+// ...currenciesJSON,
+//};
+// console.log(newJSON);
 
 const createUsers = async () => {
   let pw1 = await bcrypt.hash("myPassword", 2);
@@ -34,7 +45,6 @@ const createContinents = async () => {
       continentName: "Africa",
       continentMap:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_EKjSJ2y8CANXjipl8arGgTCRBqJi63VAQ&usqp=CAU",
-      
     },
     {
       continentName: "Antarctica",
@@ -69,69 +79,59 @@ const createContinents = async () => {
 };
 
 const createCountries = async () => {
-  const countries = [
-    {countryName: "Ethiopia", 
-     countryMap: "https://www.freeworldmaps.net/africa/ethiopia/ethiopia-physical-map.jpg",
-     ContinentId: 1}
-];
+  const countries = worldJSON1.map((c) => ({
+    countryName: c.country,
+    ContinentId: c.continentId,
+  }));
+
   return countries;
 };
 
+//Need countryID for traditionalFood
+const createTraditionalFoods = async () => {
+  const traditionalFoods = worldJSON1.map((f) => ({
+    myCountry: f.country,
+    traditionalDish: f.dish,
+    CountryId: f.countryId,
+  }));
 
-  const createTraditionalFoods = async () => {
-    const traditionalFoods = [
-      {traditionalDish: "Injera", 
-       CountryId: 1}, 
-       {traditionalDish: "Gomen", 
-       CountryId: 1},
-       {traditionalDish: "Shiro", 
-       CountryId: 1}, 
-       {traditionalDish: "Sambusa", 
-       CountryId: 1},
-       {traditionalDish: "Kitfo", 
-       CountryId: 1}
-  ];
-    return traditionalFoods;
-  };
+  return traditionalFoods;
+};
 
 const createMusics = async () => {
-  const musics = [
-    {
-      songName: "Mar eske Tuwaf (Fikir Eske Meqabir)",
-      artistName: "Teddy Afro",
-      musicVideo: "https://www.youtube.com/watch?v=mFzHpK7ibfo",
-      CountryId: 1,
-    },
-  ];
+  const musics = worldJSON1.map((m) => ({
+    musicVideo: m.music[0].MusicVideo,
+    songName: m.music[0].SongTitle,
+    artistName: m.music[0].Artist,
+    CountryId: m.countryId,
+  }));
+
   return musics;
 };
 
 const createTouristAttractions = async () => {
-  const touristAttractions = [
-    { placesToVisit: "Axum", CountryId: 1 },
-    { placesToVisit: "Lalibela", CountryId: 1 },
-    { placesToVisit: "The National Museum of Ethiopia", CountryId: 1 },
-  ];
+  const touristAttractions = worldJSON1.map((ta) => ({
+    placesToVisit: ta.touristAttraction,
+    myCountry: ta.country,
+    CountryId: ta.countryId,
+  }));
   return touristAttractions;
 };
 
 const createLanguages = async () => {
-  const languages = [
-    {language: "Amharic",
-     CountryId: 1},
-    {language: "Oromo",
-     CountryId: 1},
-    {language: "Tigrigna",
-     CountryId: 1}
-];
-  return languages;
+  const Languages = worldJSON1.map((l) => ({
+    myCountry: l.country,
+    language: l.languages.toString(),
+  }));
+  return Languages;
 };
 
 const createCurrencies = async () => {
-  const currencies = [
-    {currency: "Birr",
-     CountryId: 1},
-];
+  const currencies = worldJSON1.map((cu) => ({
+    myCountry: cu.country,
+    currency: cu.currency_name,
+    CountryId: cu.countryId,
+  }));
 
   return currencies;
 };
