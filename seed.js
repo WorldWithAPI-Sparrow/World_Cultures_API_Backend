@@ -105,9 +105,9 @@ const createTraditionalFoods = async () => {
 
 const createMusics = async () => {
   const musics = worldJSON1.map((m) => ({
-    musicVideo: m.MusicVideo.toString(),
-    songName: m.SongTitle.toString(),
-    artistName: m.Artist.toString(),
+    musicVideo: m.music[0].MusicVideo,
+    songName: m.music[0].SongTitle,
+    artistName: m.music[0].Artist,
     CountryId: m.countryId,
   }));
 
@@ -164,7 +164,7 @@ const seed = async () => {
     TraditionalFood.create(traditionalFood)
   );
 
-  const musicPromises = musics.map((music) => Music.create({ music }));
+  const musicPromises = musics.map((music) => Music.create(music));
 
   const touristAttractionPromises = touristAttractions.map(
     (touristAttraction) => TouristAttraction.create(touristAttraction)
