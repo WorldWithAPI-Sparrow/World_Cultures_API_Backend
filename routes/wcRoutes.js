@@ -4,6 +4,8 @@ const { use } = require("bcrypt/promises");
 
 const res = require("express/lib/response");
 
+require('dotenv').config('.env');
+
 const {
   Continent,
   Country,
@@ -32,14 +34,62 @@ const routes = (app) => {
     issuer: "https://dev-z8lrysnv.us.auth0.com/",
     algorithms: ["RS256"],
   });
+
+  app.get('/tokens', async(req, res) => {
+    const options = { method: 'POST',
+    url: 'https://dev-z8lrysnv.us.auth0.com/oauth/token',
+    headers: { 'content-type': 'application/json' },
+    body: '{"client_id":"hJllsYBCP9rnagEC3UCCJ5U1IZMpUwxH","client_secret":"haKQmeKWteGPWtvKrR7f3jfjQNFdXw4GHxOAhE04c9RDI1KzWjccNkOPd5uqYkSN","audience":"https://dev-z8lrysnv.us.auth0.com/api/v2/","grant_type":"client_credentials"}' };
+  
+  request(options, function (error, response, body) {
+    if (error) throw new Error(error);
+    const jsonBody = JSON.parse(body)
+    const token = jsonBody.access_token
+    console.log("New JWT sent to authenticated user")
+    res.json(token)
+  
+    console.log(body);
+  });
+  })
+
+//   app.get('/tokens', async(req, res) => {
+//   const options = { method: 'POST',
+//   url: `${process.env.AUTH0_URL}`,
+//   headers: { 'content-type': 'application/json' },
+//   body: `{"client_id":${process.env.CLIENT_ID},"client_secret":${process.env.CLIENT_SECRET},"audience":${process.env.AUDIENCE},"grant_type":"client_credentials"}`
+// };
+
+// request(options, function (error, response, body) {
+//   if (error) throw new Error(error);
+//   const jsonBody = JSON.parse(body)
+//   const token = jsonBody.access_token
+//   console.log("New JWT sent to authenticated user")
+//   res.json(token)
+// });
+// })
+
+// const options = { method: 'POST',
+//   url: 'https://dev-z8lrysnv.us.auth0.com/oauth/token',
+//   headers: { 'content-type': 'application/json' },
+//   body: '{"client_id":"hJllsYBCP9rnagEC3UCCJ5U1IZMpUwxH","client_secret":"haKQmeKWteGPWtvKrR7f3jfjQNFdXw4GHxOAhE04c9RDI1KzWjccNkOPd5uqYkSN","audience":"https://dev-z8lrysnv.us.auth0.com/api/v2/","grant_type":"client_credentials"}' };
+
+// request(options, function (error, response, body) {
+//   if (error) throw new Error(error);
+
+//   console.log(body);
+// });
+
+
+
+ // app.use(jwtCheck);
 //``````````````````````root``````````````````
   app.get('/', (req, res) => {
-    res.send('<h1>Howdy! ¡Hola! Bonjour! Bonjour! Konnichiwa! Guten Tag! Asalaam alaikum! Asalaam alaikum! Shalom!</h1><p> Welcome to the World of Cultures API</p>');
+    res.send('<h1>Howdy! ¡Hola! Bonjour! Konnichiwa! Guten Tag! Asalaam alaikum! Shalom!</h1><p> Welcome to the World of Cultures API</p>');
   })
 
   //---------------------Routes for Continents ---------------------------------------
   //Get all continents
-  app.get("/continents", jwtCheck, async (req, res) => {
+  app.get("/continents", async (req, res) => {
     let continents = await Continent.findAll();
     res.json({ continents });
   });
@@ -67,7 +117,7 @@ const routes = (app) => {
   // delete a continent
   app.delete("/continents/:id", jwtCheck, async (req, res) => {
     await Continent.destroy({ where: { id: req.params.id } });
-    res.send(Continent ? "Continent deleted" : "Continent delition failed!");
+    res.send(Continent ? "Continent deleted" : "Continent deletion failed!");
   });
 
   //---------------------Routes for Countries ---------------------------------------
@@ -297,15 +347,20 @@ const routes = (app) => {
 
   // create user
   app.post("/users", async (req, res) => {
-    const name = req.body.name;
-    const password = req.body.password;
-
-    bcrypt.hash(password, saltRounds, async function (err, hash) {
+    bcrypt.hash(req.body.userPassword, saltRounds, async function (err, hash) {
+      const name = req.body.userName;
       const newUser = await User.create({ userName: name, userPassword: hash });
       console.log(hash);
       res.json({ newUser });
     });
   });
+
+  // delete a user
+  app.delete("/users/:id", jwtCheck, async (req, res) => {
+    await User.destroy({ where: { id: req.params.id } });
+    res.send(User ? "user deleted" : "user deletion failed!");
+  });
+
 
   //---------------------Routes ---------------------------------------
 
