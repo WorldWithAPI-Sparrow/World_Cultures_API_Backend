@@ -1,4 +1,4 @@
-# World_Cultures_API_Backend
+# World Cultures API Backend
 An API of cultures and attributes related to countries and the continents they belong to
 
 [WorldWithAPI-Sparrow](https://github.com/WorldWithAPI-Sparrow) _About The Project_  
