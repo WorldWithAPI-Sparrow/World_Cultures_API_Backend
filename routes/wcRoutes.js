@@ -4,6 +4,8 @@ const { use } = require("bcrypt/promises");
 
 const res = require("express/lib/response");
 
+require('dotenv').config('.env');
+
 const {
   Continent,
   Country,
@@ -82,12 +84,12 @@ const routes = (app) => {
  // app.use(jwtCheck);
 //``````````````````````root``````````````````
   app.get('/', (req, res) => {
-    res.send('<h1>Howdy! ¡Hola! Bonjour! Bonjour! Konnichiwa! Guten Tag! Asalaam alaikum! Asalaam alaikum! Shalom!</h1><p> Welcome to the World of Cultures API</p>');
+    res.send('<h1>Howdy! ¡Hola! Bonjour! Konnichiwa! Guten Tag! Asalaam alaikum! Shalom!</h1><p> Welcome to the World of Cultures API</p>');
   })
 
   //---------------------Routes for Continents ---------------------------------------
   //Get all continents
-  app.get("/continents", jwtCheck, async (req, res) => {
+  app.get("/continents", async (req, res) => {
     let continents = await Continent.findAll();
     res.json({ continents });
   });
@@ -115,7 +117,7 @@ const routes = (app) => {
   // delete a continent
   app.delete("/continents/:id", jwtCheck, async (req, res) => {
     await Continent.destroy({ where: { id: req.params.id } });
-    res.send(Continent ? "Continent deleted" : "Continent delition failed!");
+    res.send(Continent ? "Continent deleted" : "Continent deletion failed!");
   });
 
   //---------------------Routes for Countries ---------------------------------------
