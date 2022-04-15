@@ -56,6 +56,7 @@ _Production_
 -   Signup and login forms for Users
 
 _Images_  
+
 ERD Sequence diagram  
 _Future Work_  
 
