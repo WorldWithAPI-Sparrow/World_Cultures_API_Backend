@@ -347,12 +347,11 @@ const routes = (app) => {
   });
     
   // creating new user 
-  app.post("/signup", jwtCheck, async (req, res) => {
+  app.post("/signup", async (req, res) => {
     const name = req.body.name
     const password = req.body.password
   
     bcrypt.hash(password, saltRounds, async function (err, hash) {
-      const name = req.body.userName;
       const newUser = await User.create({ userName: name, userPassword: hash });
       console.log(hash);
       res.json({ newUser });
@@ -362,19 +361,32 @@ const routes = (app) => {
 
  
    // login for existing user
-  app.post('/login', jwtCheck, async (req,res) =>{
+  app.post('/login', async (req,res) =>{
+    console.log(req.body)
     const singleUser = await User.findOne({
       where: {
-        userName: req.body.name,         
-        }
+        userName: req.body.userName,         
+        }    
     })      
-    console.log(req.params)
-    if(!signleUser) {
-      res.send('user not found')
+    
+    console.log(singleUser)
+    if(!singleUser) {
+      res.send('User not found')
     } else {
-      bcrypt.compare(req.body.password, singleUser.password, async function(err, result){
+      bcrypt.compare(req.body.userPassword, singleUser.userPassword, async function(err, result){
         if(result){
-          res.json(singleUser)
+          const options = { method: 'POST',
+          url: 'https://dev-z8lrysnv.us.auth0.com/oauth/token',
+          headers: { 'content-type': 'application/json' },
+          body: '{"client_id":"hJllsYBCP9rnagEC3UCCJ5U1IZMpUwxH","client_secret":"haKQmeKWteGPWtvKrR7f3jfjQNFdXw4GHxOAhE04c9RDI1KzWjccNkOPd5uqYkSN","audience":"https://dev-z8lrysnv.us.auth0.com/api/v2/","grant_type":"client_credentials"}' };
+        
+        request(options, function (error, response, body) {
+          if (error) throw new Error(error);
+          const jsonBody = JSON.parse(body)
+          const token = jsonBody.access_token
+          console.log("New JWT sent to authenticated user")
+          res.json(token)
+        });
         }else {
           res.send("Passwords don't match")
         }
